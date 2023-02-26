@@ -1,0 +1,103 @@
+/* Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  
+  nav {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  /* Hero Styles */
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 30vh;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  #hero h1 {
+    margin-bottom: 20px;
+  }
+  
+  /* About Styles */
+  #about {
+    padding: 20px;
+  }
+  
+  /* Portfolio Styles */
+  #portfolio {
+    padding: 20px;
+  }
+  
+  #portfolio ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #portfolio ul li {
+    margin-bottom: 10px;
+  }
+  
+  /* Contact Styles */
+  #contact {
+    padding: 20px;
+  }
+  
+  #contact form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #contact form label {
+    margin-bottom: 10px;
+  }
+  
+  #contact form input[type="text"],
+  #contact form input[type="email"],
+  #contact form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Footer Styles */
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+  }

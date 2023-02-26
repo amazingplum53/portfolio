@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> My Website </title>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+
+    {% load static %}
+      <link rel="stylesheet" type="text/css" href = "{% static '/homepage/homepage.css' %}">
+      
+  </head>
+
+  <body>
+
+    <section id = "hero">
+      <h1>Welcome to My Website</h1>
+      <p>Here you will find information about myself, various projects I have made, and how to contact me.</p>
+    </section>
+
+    <nav>
+      <ul>
+        <li><a href = "#about">About</a></li>
+        <li><a href = "#portfolio">Portfolio</a></li>
+        <li><a href = "#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id = "about">
+      <h2>About Me</h2>
+      <p>
+        I am a professional web developer with experience in creating modern and responsive websites. 
+        I have a passion for creating beautiful and functional digital experiences.
+      </p>
+    </section>
+
+    <section id = "portfolio">
+      <h2>Portfolio</h2>
+      <ul>
+        <li><a href = "#">Project 1</a></li>
+        <li><a href = "#">Project 2</a></li>
+        <li><a href = "#">Project 3</a></li>
+        <li><a href = "#">Project 4</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>Copyright © 2022 My Website</p>
+    </footer>
+
+  </body>
+
+</html>
