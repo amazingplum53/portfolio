@@ -1,5 +1,5 @@
 
-from .settings_base import *
+from .base import BASE_DIR
 
 
 DATABASES = {
@@ -9,9 +9,8 @@ DATABASES = {
     }
 }
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'www.test.matthewhill.click',
-    '127.0.0.1'
+    'www.matthewhill.click',
 ]
