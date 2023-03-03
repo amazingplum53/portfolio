@@ -12,6 +12,6 @@ DATABASES = {
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'www.test.matthewhill.click',
+    'www.matthewhill.click',
     '127.0.0.1'
 ]
