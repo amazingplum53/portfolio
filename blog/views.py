@@ -1,7 +1,9 @@
 from django.shortcuts import render
 
-def index(request):
+
+def featured(request):
 
     return render(
-        
+        request,
+        "featured.html"
     )
