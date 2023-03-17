@@ -25,7 +25,8 @@ SECRET_KEY = get_random_secret_key()
 # Application definition
 
 APP_LIST = [
-    'homepage'
+    'homepage',
+    'blog'
 ]
 
 INSTALLED_APPS = [
