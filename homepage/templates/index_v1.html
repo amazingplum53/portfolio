@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    {% include 'head_info.html' %}
+
+    {% load static %}
+      <link rel = "stylesheet" type = "text/css" href = "{% static '/homepage/homepage.css' %}">
+
+  </head>
+
+  <body>
+
+    {% include 'navbar.html' %}
+
+    {% include 'hero.html' %}
+
+    <section id = "content">
+
+      {% include 'about_content.html' %}
+
+    </section>
+
+  </body>
+
+</html>

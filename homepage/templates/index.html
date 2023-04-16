@@ -1,60 +1,109 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
-
   <head>
-
+    
     {% include 'head_info.html' %}
 
-    {% load static %}
-      <link rel = "stylesheet" type = "text/css" href = "{% static '/homepage/homepage.css' %}">
-      
+        <link rel = "stylesheet" type = "text/css" href = "{% static '/homepage/index.css' %}">
+        <link rel = "stylesheet" type = "text/css" href = "{% static '/homepage/common.css' %}">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </head>
-
   <body>
-
-    {% include 'hero.html' %}
 
     {% include 'navbar.html' %}
 
-    <section id = "content">
+    <main>
+      <section id="hero">
+        <h1>Welcome to my portfolio!</h1>
+        <p>My name is Matthew Hill and I'm a backend web developer.</p>
+        <p>Find out more about me or check out my projects!</p>
+        <a href="#about" class="button">Learn more</a>
+      </section>
 
-      <h2 id = "about">About Me</h2>
+      <section id="about" class = "content">
+        <h2>Personal Statement</h2>
+        <p>
+          I am an adaptable, conscientious, and inventive person with experience in a wide variety of disciplines and situations. 
+          My strengths include dedication, teamwork, working well under my own initiative and an adaptable and flexible approach. 
+          I enjoy the challenges of problem-solving. Producing effective solutions in different scenarios is something I find both engaging and satisfying.
+        </p> 
+        <p>
+          During my time at Comparison Creator - 
+          a company focused on white labels and partnerships with major comparison sites such as GoCompare and MoneySuperMarket - 
+          I gained a great deal of practical experience with many different technologies implemented there. 
+        </p>
+        <p>
+          As a member of Panteg Scout Group I was awarded the Chief Scout's Gold Award from Bear Grylls. 
+          Building on that, one of my most rewarding experiences was accepting the Duke of Edinburgh Gold Award from Prince Edward at St James Palace. 
+        </p>
+        <p>
+          My Computer Science Course at Cardiff involved the theory, design, development, and application of computer-based technologies. 
+          I studied many aspects of computing, but my main interest was coding and software development using Java and Python to complete my projects. 
+          I take an experimental approach, similar to rapid application development, which makes me well suited to new, interesting projects. 
+        </p>
+      </section>
 
-      <p>
-        I am an adaptable, conscientious, and inventive person with experience in a wide variety of disciplines and situations. 
-        My strengths include dedication, teamwork, working well under my own initiative and an adaptable and flexible approach. 
-        I enjoy the challenges of problem-solving. 
-        Producing effective solutions in different scenarios is something I find both engaging and satisfying. 
-        I take an experimental approach, rapidly developing my projects then ironing out any bugs afterwords. 
-      </p>
+      <div class="banner">  
+        <img src = "{% static '/homepage/target.png' %}" width="100" height="100" alt="Skills">       
+        <p> Skills </p>     
+        <div style = "padding: 50px;"></div>    
+      </div>
 
-      <h2 id = "comparison">Comparison Creator</h2>
+      <section id="skills" class = "content">
+        <h2>Skills</h2>
+        <p>
+          I am an adaptable, conscientious, and inventive person with experience in a wide variety of disciplines and situations. 
+          My strengths include dedication, teamwork, working well under my own initiative and an adaptable and flexible approach. 
+          I enjoy the challenges of problem-solving. 
+          Producing effective solutions in different scenarios is something I find both engaging and satisfying. 
+          I take an experimental approach, rapidly developing my projects then ironing out any bugs afterwords. 
+        </p>
+      </section>
 
-      <p>
-        During the year I worked for Comparison Creator, 
-        a company focused on white label and partnership contracts with major comparison sites such as Go.Compare and MoneySuperMarket, 
-        I gained a great deal of practical experience with many different technologies implemented there. 
-        Comparison Creator was an excellent place to learn industry skills and knowledge, 
-        developing my Django and infrastructure skills to the point where I can deploy websites like this one!
-      </p>
+      <div class="banner">
+        <img src = "{% static '/homepage/edu.png' %}" width="100" height="100" alt="Education">
+        <p> Education and Job History </p>
+        <img src = "{% static '/homepage/job.png' %}" width="100" height="100" alt="Job">
+      </div>
 
-      <h2 id = "university">University</h2>
+      <section id = "edu-job" class = "content">
+        <h2>Education and Work</h2>
+        <p>
+          During the year I worked for Comparison Creator, 
+          a company focused on white label and partnership contracts with major comparison sites such as Go.Compare and MoneySuperMarket, 
+          I gained a great deal of practical experience with many different technologies implemented there. 
+          Comparison Creator was an excellent place to learn industry skills and knowledge, 
+          developing my Django and infrastructure skills to the point where I can deploy websites like this one!
+        </p>
+        <p>
+          My Computer Science Course at Cardiff involved the theory, design, development, and application of computer-based technologies. 
+          I studied many aspects of computing, but my main interest was coding and software development using Python and Java to complete my projects. 
+          Django web development one of the modules in my university course - it served as the foundation for my role at Comparison Creator.
+        </p>
+      </section>
 
-      <p>
-        My Computer Science Course at Cardiff involved the theory, design, development, and application of computer-based technologies. 
-        I studied many aspects of computing, but my main interest was coding and software development using Python and Java to complete my projects. 
-        Django web development one of the modules in my university course - it served as the foundation for my role at Comparison Creator
-      </p>
+      <div class="banner">
+        <div style = "padding: 50px;"></div>    
+        <p> Interests </p>
+        <img src = "{% static '/homepage/racket.png' %}" width="90" height="100" alt="Racket">
+      </div>
 
-      <h2 id = "personal">Personal Achievements</h2>
+      <section id = "interests" class = "content">
+        <h2>Interests</h2>
+        <p>
+          Until I enrolled in university, I was a member of Torfaen Smallbore Rifle Club. 
+          Through shooting I appreciated meeting new people in the community from many different backgrounds, together with   
+          competing in club competitions where I made friends from other areas. Otherwise, I also enjoy playing badminton.  
+          These roles allowed me to meet and communicate with others whilst benefiting from the fitness aspect of my activities.
+        </p>
+      </section>
 
-      <p>
-        As a member of Panteg Scout Group, I was awarded the Chief Scout's Gold Award from Bear Grylls. 
-        Building on that, one of my most rewarding experiences was accepting the Duke of Edinburgh Gold Award from Prince Edward at St James Palace. 
-      </p>
+    </main>
 
-    </section>
+    {% include 'footer.html' %}
 
   </body>
-
 </html>

@@ -1,43 +1,25 @@
-<!DOCTYPE html>
-<html>
 
-  <head>
 
-    {% include 'head_info.html' %}
+<section id = "content">
 
-    {% load static %}
-      <link rel = "stylesheet" type = "text/css" href = "{% static '/homepage/homepage.css' %}">
-      
-  </head>
+  <h2>Contact</h2>
 
-  <body>
+  <p>
+    Thank you for taking the time to look through my website. Here are the various contact details you can use to find me:
+  </p>
 
-    {% include 'hero.html' %}
+  <ul>
+    <li>Phone Number - 07745 374260</li>
+    <li>Email Address - matthewpaulh@hotmail.co.uk</li>
+    <li>My <a href = "https://www.linkedin.com/in/matthew-hill-86684811b/">LinkinIn Account</a></li>
+    <li>Physical Address - New Inn, Pontypool, NP4 0RR</li>
+    <li><a href = "https://github.com/amazingplum53/portfolio">Github Repository</a> for this project</li>
+  </ul>
 
-    {% include 'navbar.html' %}
+  {{ contact_form }}
 
-    <section id = "content">
+  <p>
+    Thanks again!
+  </p>
 
-      <h2>Contact Details</h2>
-
-      <p>
-        Thank you for taking the time to look through my website. Here are the various contact details you can use to find me:
-      </p>
-
-      <ul>
-        <li>Phone Number - 07745 374260</li>
-        <li>Email Address - matthewpaulh@hotmail.co.uk</li>
-        <li>My <a href = "https://www.linkedin.com/in/matthew-hill-86684811b/">LinkinIn Account</a></li>
-        <li>Physical Address - New Inn, Pontypool, NP4 0RR</li>
-        <li><a href = "https://github.com/amazingplum53/portfolio">Github Repository</a> for this project</li>
-      </ul>
-
-      <p>
-        Thanks again!
-      </p>
-
-    </section>
-
-  </body>
-
-</html>
+</section>
