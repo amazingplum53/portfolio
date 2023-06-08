@@ -39,4 +39,4 @@ class Image(Model):
 
     source = ImageField(upload_to = "ArticleImages/%Y/%m/")
 
-    caption = CharField()
+    caption = CharField(max_length = 200)
