@@ -15,7 +15,21 @@
 
     <section id = "content">
 
+      {% for article in articles %}
 
+        <div>
+          <h2>
+            <href = "/blog/article/{{ article.id }}"> {{ article.title }} </href>
+          </h2>
+          <p>
+            {{ article.release_date }}
+          </p>
+          <p>
+            {{ article.first_paragraph }}
+          </p>
+        </div>
+
+      {% endfor %}
 
     </section>
 

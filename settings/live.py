@@ -12,5 +12,11 @@ DATABASES = {
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'www.matthewhill.click',
+    'matthewhill.click',
+]
+
+CSRF_TRUSTED_ORIGINS = [ 
+    f"http://{address}" for address in ALLOWED_HOSTS
+] + [
+    f"http://www.{address}" for address in ALLOWED_HOSTS
 ]

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
+from os import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-SECRET_KEY = get_random_secret_key()
 
 # Application definition
 
@@ -120,4 +120,13 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://www.matthewhill.click']
+
+# Custom variables
+
+if "SECRET_KEY" in environ: 
+    SECRET_KEY = environ["SECRET_KEY"]
+
+else: SECRET_KEY = get_random_secret_key()
+
+
+BASE_EMAIL_SENDER = "@matthewhill.click"
