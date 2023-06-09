@@ -7,21 +7,10 @@ from .forms import ContactForm
 
 def home(request):
 
-    email_sent = False
-
-    if request.method == "POST":
-
-        email_sent = contact(request)
-
-
-
     return render(
         request,
         'index.html',
-        {
-            "contact_form": ContactForm(),
-            "email_sent": email_sent
-        }
+        {"contact_form": ContactForm()}
     )
 
 
@@ -29,26 +18,32 @@ def contact(request):
 
     form = ContactForm(request.POST)
 
-    if form.is_valid():
+    if request.method == "POST":
 
-        html_content = render_to_string(
-            "contact_email.html", 
-            {
-                "sender": form.cleaned_data["sender"],
-                "message": form.cleaned_data["message"],
-                "url": request.get_full_path()
-            }
-        )
+        if form.is_valid():
 
-        valid_response = send_email(
-            ["matthewpaulh@hotmail.co.uk"],
-            form.cleaned_data["subject"],
-            "contact" + settings.BASE_EMAIL_SENDER,
-            html_content,
-            cc = form.cleaned_data["sender"] if form.cleaned_data["cc_myself"] else []
-        )
+            html_content = render_to_string(
+                "contact_email.html", 
+                {
+                    "sender": form.cleaned_data["sender"],
+                    "message": form.cleaned_data["message"],
+                    "url": request.get_full_path()
+                }
+            )
 
-        return valid_response
+            valid_response = send_email(
+                ["matthewpaulh@hotmail.co.uk"],
+                form.cleaned_data["subject"],
+                "contact" + settings.BASE_EMAIL_SENDER,
+                html_content,
+                cc = form.cleaned_data["sender"] if form.cleaned_data["cc_myself"] else []
+            )
+
+        return render(request, "contact.html", {})
+    
+    else:
+
+        HttpResponseRedirect("/homepage/about/")
 
 
 def projects(request):

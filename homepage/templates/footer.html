@@ -26,7 +26,7 @@
 
         <p>Need more info? Want references? Send me an email -- I'll get back to you ASAP!</p>
 
-        <form method = "post" action = "{{ url }}">
+        <form method = "post" action = "/homepage/contact/">
 
             {% csrf_token %}
 
@@ -37,13 +37,5 @@
         </form>
 
     </div>
-
-    {% if email_sent %}
-
-        <div>
-            Email Sent!
-        </div>
-
-    {% endif %}
 
 </footer> 
