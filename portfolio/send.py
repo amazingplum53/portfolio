@@ -71,5 +71,9 @@ def send_email(
     if len(data["Messages"]) > 0:
 
         result = email_client.send.create(data=data)
-        print(result.status_code)
-        return result.json()
+
+        if result.status_code == 200:
+
+            return True
+
+    return False

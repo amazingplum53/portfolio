@@ -7,14 +7,21 @@ from .forms import ContactForm
 
 def home(request):
 
+    email_sent = False
+
     if request.method == "POST":
 
-        contact(request)
+        email_sent = contact(request)
+
+
 
     return render(
         request,
         'index.html',
-        {"contact_form": ContactForm()}
+        {
+            "contact_form": ContactForm(),
+            "email_sent": email_sent
+        }
     )
 
 
@@ -33,7 +40,7 @@ def contact(request):
             }
         )
 
-        message = send_email(
+        valid_response = send_email(
             ["matthewpaulh@hotmail.co.uk"],
             form.cleaned_data["subject"],
             "contact" + settings.BASE_EMAIL_SENDER,
@@ -41,7 +48,7 @@ def contact(request):
             cc = form.cleaned_data["sender"] if form.cleaned_data["cc_myself"] else []
         )
 
-        message.send()
+        return valid_response
 
 
 def projects(request):
