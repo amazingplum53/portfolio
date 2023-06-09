@@ -28,7 +28,8 @@ def contact(request):
             "contact_email.html", 
             {
                 "sender": form.cleaned_data["sender"],
-                "message": form.cleaned_data["message"]
+                "message": form.cleaned_data["message"],
+                "url": request.get_full_path()
             }
         )
 
