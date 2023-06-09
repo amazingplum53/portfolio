@@ -17,8 +17,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [ 
-    f"http://{address}" for address in ALLOWED_HOSTS
+    f"https://{address}" for address in ALLOWED_HOSTS
 ] + [
-    f"http://www.{address}" for address in ALLOWED_HOSTS
+    f"https://www.{address}" for address in ALLOWED_HOSTS
 ]
 
