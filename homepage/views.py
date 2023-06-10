@@ -27,23 +27,22 @@ def contact(request):
                 {
                     "sender": form.cleaned_data["sender"],
                     "message": form.cleaned_data["message"],
-                    "url": request.get_full_path()
                 }
             )
 
-            valid_response = send_email(
+            send_email(
                 ["matthewpaulh@hotmail.co.uk"],
                 form.cleaned_data["subject"],
                 "contact" + settings.BASE_EMAIL_SENDER,
                 html_content,
-                cc = form.cleaned_data["sender"] if form.cleaned_data["cc_myself"] else []
+                cc = [form.cleaned_data["sender"]] if form.cleaned_data["cc_myself"] else []
             )
 
         return render(request, "contact.html", {})
     
     else:
 
-        HttpResponseRedirect("/homepage/about/")
+        return HttpResponseRedirect("/homepage/about/")
 
 
 def projects(request):
