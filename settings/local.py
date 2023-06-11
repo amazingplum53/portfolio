@@ -1,5 +1,5 @@
 
-from .base import *
+from .base import BASE_DIR
 
 
 DATABASES = {
@@ -13,9 +13,5 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1'
-]
-
-CSRF_TRUSTED_ORIGINS = [ 
-    f"http://{address}" for address in ALLOWED_HOSTS
 ]
 

@@ -145,3 +145,8 @@ elif argv[1] == "live":
 
 else:
     from .local import *
+
+
+CSRF_TRUSTED_ORIGINS = [ 
+    f"https://{address}" for address in ALLOWED_HOSTS
+]
