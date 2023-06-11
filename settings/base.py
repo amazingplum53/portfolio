@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from os import environ
-from sys import argv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,7 +121,13 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Custom variables
+# Emails
+
+
+BASE_EMAIL_SENDER = "@matthewhill.click"
+
+
+# Get secret key
 
 if "SECRET_KEY" in environ: 
     SECRET_KEY = environ["SECRET_KEY"]
@@ -130,15 +135,26 @@ if "SECRET_KEY" in environ:
 else: SECRET_KEY = get_random_secret_key()
 
 
-BASE_EMAIL_SENDER = "@matthewhill.click"
+# Get settings files
 
 
-if argv[1] == "test":
+settings = ""
+
+if "SETTINGS" in environ:
+    if environ["SETTINGS"] in ["test", "live", "local"]:
+        settings = environ["SETTINGS"]
+
+
+if settings == "":
+    settings = "test"
+
+
+if settings == "test":
 
     from .test import *
     from .db import *
 
-elif argv[1] == "live":
+elif settings == "live":
 
     from .live import *
     from .db import *
