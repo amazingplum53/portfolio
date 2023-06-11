@@ -5,6 +5,11 @@
     text-align: center;
     height: 100vh;
     margin: 0px;
-    padding-top: 45vh
+    padding-top: 45vh;
+    font-size: 21px;
   }
+
+a {
+    color: #fff;
+}
 
