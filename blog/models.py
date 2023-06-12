@@ -1,15 +1,10 @@
 
 from django.db.models import (
-    Model, 
-    TextField, 
-    CharField, 
-    DateField,
-    IntegerField,
-    BooleanField,
-    ForeignKey,
-    ImageField,
-    CASCADE
+    Model, TextField, CharField, 
+    DateField, IntegerField, BooleanField, 
+    ForeignKey, ImageField, CASCADE
 )
+
 
 class Article(Model):
 
@@ -37,6 +32,6 @@ class Image(Model):
 
     article = ForeignKey(Article, on_delete = CASCADE)
 
-    source = ImageField(upload_to = "ArticleImages/%Y/%m/")
+    source = ImageField(upload_to = "static/blog/images/ArticleImages/%Y/%m/")
 
     caption = CharField(max_length = 200)
