@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import sys
-from portfolio.get_env import setup
+from os import environ
 
 
 def main():
     """Run administrative tasks."""    
 
-    setup()
+    environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.base')
 
     try:
         from django.core.management import execute_from_command_line

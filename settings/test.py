@@ -1,3 +1,4 @@
+from .postgres import *
 
 
 DEBUG = True

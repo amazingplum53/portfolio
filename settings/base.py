@@ -22,6 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 
+from portfolio.env import get_environ_variables, generate
+
+try:
+    get_environ_variables(BASE_DIR)
+
+except:
+    generate(BASE_DIR, get_random_secret_key())
+    get_environ_variables(BASE_DIR)
+
 # Application definition
 
 APP_LIST = [
@@ -129,35 +138,22 @@ BASE_EMAIL_SENDER = "@matthewhill.click"
 
 # Get secret key
 
-if "SECRET_KEY" in environ: 
-    SECRET_KEY = environ["SECRET_KEY"]
 
-else: SECRET_KEY = get_random_secret_key()
+SECRET_KEY = environ["SECRET_KEY"]
 
 
 # Get settings files
 
 
-settings = ""
-
-if "SETTINGS" in environ:
-    if environ["SETTINGS"] in ["test", "live", "local"]:
-        settings = environ["SETTINGS"]
-
-
-if settings == "":
-    settings = "test"
-
+settings = environ["SETTINGS"]
 
 if settings == "test":
 
     from .test import *
-    from .db import *
 
 elif settings == "live":
 
     from .live import *
-    from .db import *
 
 else:
     from .local import *
