@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset = "UTF-8">
+    
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">    
+
+    <title>{% block title %}Matthew's Blog{% endblock %}</title>
+
+    {% load static %}
+    {% block css %}<link rel = "stylesheet" type = "text/css" href = "{% static '/blog/featured.css' %}">{% endblock %}
+      
+  </head>
+
+  <body>
+
+    {% block navbar %}
+
+    {% include 'navbar.html' %}
+
+    {% endblock %}
+
+    <section id = "content">
+
+      {% block content %}
+
+      {% endblock %}
+
+    </section>
+
+  </body>
+
+</html>
