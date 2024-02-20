@@ -5,6 +5,7 @@ from blog.models import Article
 
 from django.http import HttpResponseRedirect
 
+
 def featured(request):
 
     recent_articles = Article.objects.filter(published = True).order_by('-release_date')[:5]

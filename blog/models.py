@@ -2,15 +2,19 @@
 from django.db.models import (
     Model, TextField, CharField, 
     DateField, IntegerField, BooleanField, 
-    ForeignKey, ImageField, CASCADE
+    ForeignKey, ImageField, CASCADE,
+    ManyToManyField
 )
+
+
+class Category(Model):
+
+    name = CharField(max_length = 200)
 
 
 class Article(Model):
 
     title = CharField(max_length = 200)
-
-    content = TextField()
 
     release_date = DateField()
 
@@ -18,14 +22,48 @@ class Article(Model):
 
     published = BooleanField(default = False)
 
+    category = ManyToManyField(Category)
 
+
+    def get_content(self):
+
+        content_types = [
+            {"model": Paragraph, "objects": None},
+            {"model": Image, "objects": None},
+        ]
+
+        content_length = 0
+
+        for content_type in content_types:
+
+            content_type["objects"] = content_type["model"].objects.filter(article = self).order_by("order")
+
+            content_length += len(content_type["objects"])
+
+        contents = [None] * content_length
+
+        for content_type in content_types:
+
+            for content in content_type["objects"]:
+
+                contents[content.order] = content        
+
+        return contents
+    
     def first_paragraph(self):
 
-        return self.content.split("\n")[0]
-    
-    def paragraphs(self):
+        all_paragraphs = Paragraph.objects.filter(article = self)
 
-        return self.content.split("\n")
+        return all_paragraphs.order_by("order").first()
+    
+
+class Paragraph(Model):
+
+    article = ForeignKey(Article, on_delete = CASCADE)
+
+    content = TextField()
+
+    order = IntegerField()
     
 
 class Image(Model):
@@ -35,3 +73,5 @@ class Image(Model):
     source = ImageField(upload_to = "static/blog/images/ArticleImages/%Y/%m/")
 
     caption = CharField(max_length = 200)
+
+    order = IntegerField()
