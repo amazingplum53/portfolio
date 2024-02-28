@@ -12,7 +12,7 @@ def featured(request):
 
     return render(
         request,
-        "reader/featured.html",
+        "blog/reader/featured.html",
         {"articles": recent_articles}
     )
 
@@ -31,7 +31,7 @@ def article(request, article_id):
 
     return render(
         request,
-        "reader/article.html",
+        "blog/reader/article.html",
         {"articles": article}
     )
 
@@ -40,7 +40,7 @@ def author_view(request):
 
     return render(
         request,
-        "author/article.html",
+        "blog/author/article.html",
         {"articles": Article.objects.all()}
     )
 
