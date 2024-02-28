@@ -3,7 +3,6 @@ from django.db.models import (
     Model, TextField, CharField, 
     DateField, IntegerField, BooleanField, 
     ForeignKey, ImageField, CASCADE,
-    ManyToManyField
 )
 
 
@@ -22,7 +21,7 @@ class Article(Model):
 
     published = BooleanField(default = False)
 
-    category = ManyToManyField(Category)
+    category = ForeignKey(Category, on_delete = CASCADE, null = True)
 
 
     def get_content(self):
@@ -61,9 +60,12 @@ class Paragraph(Model):
 
     article = ForeignKey(Article, on_delete = CASCADE)
 
-    content = TextField()
+    text = TextField()
 
     order = IntegerField()
+
+    def content_type(self):
+        return "paragraph"
     
 
 class Image(Model):
@@ -75,3 +77,6 @@ class Image(Model):
     caption = CharField(max_length = 200)
 
     order = IntegerField()
+
+    def content_type(self):
+        return "image"

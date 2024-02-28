@@ -12,14 +12,18 @@ def featured(request):
 
     return render(
         request,
-        "featured.html",
+        "reader/featured.html",
         {"articles": recent_articles}
     )
 
 
 def article(request, article_id):
 
-    article = Article.objects.get(id = article_id)
+    try:
+        article = Article.objects.get(id = article_id)
+
+    except:
+        return HttpResponseRedirect("/blog/featured/")
 
     if not article.published:
 
@@ -27,6 +31,20 @@ def article(request, article_id):
 
     return render(
         request,
-        "featured.html",
+        "reader/article.html",
         {"articles": article}
     )
+
+
+def author_view(request):
+
+    return render(
+        request,
+        "author/article.html",
+        {"articles": Article.objects.all()}
+    )
+
+
+def article_writer(request, article_id):
+
+    pass

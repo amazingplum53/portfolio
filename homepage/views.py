@@ -9,7 +9,7 @@ def home(request):
 
     return render(
         request,
-        'index.html',
+        'homepage/index.html',
         {"contact_form": ContactForm()}
     )
 
@@ -38,7 +38,7 @@ def contact(request):
                 cc = [form.cleaned_data["sender"]] if form.cleaned_data["cc_myself"] else []
             )
 
-        return render(request, "contact.html", {})
+        return render(request, "homepage/contact.html", {})
     
     else:
 
@@ -49,6 +49,6 @@ def projects(request):
 
     return render(
         request,
-        'projects.html',
+        'homepage/projects.html',
         {"contact_form": ContactForm()}
     )

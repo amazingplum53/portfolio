@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block header %}Article list{% endblock %}
+
+{% block navbar %}
+
+{% include navbar.html %}
+
+{% endblock %}
+
+{% block content %}
+
+{% for article in articles %}
+
+  <div>
+    <h2>
+      <href = "/blog/article/{{ article.id }}"> {{ article.title }} </href>
+    </h2>
+    <p>
+      {{ article.release_date }}
+    </p>
+  </div>
+
+{% endfor %}
+
+{% endblock %}
+

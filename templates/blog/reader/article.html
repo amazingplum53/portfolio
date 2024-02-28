@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.category }}{% endblock %}
+
+{% block header %}{{ article.title }}{% endblock %}
+
+  {% for content in article.get_content %}   
+    {% if content.content_type == "paragraph" %}   
+
+    {% include text.html with content = content %}
+
+    {% elif content.content_type == "image" %}
+
+    {% include image.html with content = content %}
+
+    {% endif %}
+  {% endfor %}
+
+{% endblock %}
+

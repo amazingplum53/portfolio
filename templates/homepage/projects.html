@@ -2,7 +2,7 @@
 <html>
   <head>
     
-    {% include 'head_info.html' %}
+    {% include 'homepage/head_info.html' %}
 
     {% load static %}
         <link rel = "stylesheet" type = "text/css" href = "{% static '/homepage/css/projects.css' %}">
@@ -10,7 +10,7 @@
   </head>
   <body>
 
-    {% include 'navbar.html' %}
+    {% include 'homepage/navbar.html' %}
 
     <main>
       <section id="projects" class = "content">
@@ -18,7 +18,7 @@
         <ul>
           <li id = "#blog">
             <h3>Blog</h3>
-            <p>[Insert project description here.]</p>
+            <p>A blog site where authors can publish articles and users can read them.</p>
           </li>
           <li id = "#store">
             <h3>Store</h3>
@@ -32,7 +32,7 @@
       </section>
     </main>
 
-    {% include 'footer.html' %}
+    {% include 'homepage/footer.html' %}
 
   </body>
 </html>
