@@ -29,3 +29,7 @@ RUN unlink nginx.conf
 RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
 RUN ln -s $BASEDIR/portfolio/conf/supervisor.conf /etc/supervisor/conf.d/
+
+WORKDIR $BASEDIR/portfolio
+
+CMD ["bin/bash", "run.sh"]
