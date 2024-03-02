@@ -8,7 +8,7 @@ RUN mkdir $BASEDIR/
 
 WORKDIR $BASEDIR
 
-RUN apt-get -y install git python3-pip python3.10-venv python3-dev libpq-dev
+RUN apt-get -y install git python3-pip python3.10-venv python3-dev libpq-dev systemctl
 
 RUN git clone https://github.com/amazingplum53/portfolio.git portfolio
 
@@ -16,7 +16,7 @@ RUN python3 -m venv $BASEDIR/venv
 
 RUN venv/bin/python3 -m pip install -r portfolio/conf/requirements.txt
 
-RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring supervisor
+RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring supervisor 
 
 RUN curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 

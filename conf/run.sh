@@ -4,7 +4,7 @@ cd /var/www/portfolio/
 
 /usr/bin/git pull
 
-/usr/bin/supervisorctl start supervisor
+/usr/bin/systemctl start supervisor
 
 echo "Hello world"
 
