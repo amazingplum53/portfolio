@@ -4,6 +4,6 @@
 
 #git pull
 
-#while :; do sleep 2073600; done
-
 echo "Hello world"
+
+while :; do sleep 2073600; done
