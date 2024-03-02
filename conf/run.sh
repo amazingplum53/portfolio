@@ -4,4 +4,4 @@ cd /var/www/portfolio/
 
 git pull
 
-sleep infinity
+while :; do sleep 2073600; done
