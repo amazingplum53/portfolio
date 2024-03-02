@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 
-#cd /var/www/portfolio/
+cd /var/www/portfolio/
 
-#git pull
+/usr/bin/git pull
 
 echo "Hello world"
 
