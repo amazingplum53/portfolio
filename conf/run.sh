@@ -1,7 +1,9 @@
 #!/bin/bash
 
-cd /var/www/portfolio/
+#cd /var/www/portfolio/
 
-git pull
+#git pull
 
-while :; do sleep 2073600; done
+#while :; do sleep 2073600; done
+
+echo "Hello world"
