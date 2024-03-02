@@ -3,3 +3,5 @@
 cd /var/www/portfolio/
 
 git pull
+
+sleep infinity
