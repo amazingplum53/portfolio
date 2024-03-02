@@ -30,4 +30,4 @@ RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
 RUN ln -s $BASEDIR/portfolio/conf/supervisor.conf /etc/supervisor/conf.d/
 
-#CMD ["/bin/bash", $BASEDIR + "/portfolio/conf/run.sh"]
+#CMD ["/usr/bin/bash", $BASEDIR + "/portfolio/conf/run.sh"]
