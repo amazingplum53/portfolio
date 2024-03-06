@@ -165,12 +165,12 @@ string_mask = utf8only
 # req_extensions = v3_req # The extensions to add to a certificate request
 
 [ req_distinguished_name ]
-countryName                     = Country Name (2 letter code)
+countryName                     = UK
 countryName_default             = UK
 countryName_min                 = 2
 countryName_max                 = 2
 
-stateOrProvinceName             = State or Province Name (full name)
+stateOrProvinceName             = Wales
 stateOrProvinceName_default     = Wales
 
 localityName                    = Locality Name (eg, city)
@@ -185,11 +185,11 @@ localityName                    = Locality Name (eg, city)
 organizationalUnitName          = Organizational Unit Name (eg, section)
 #organizationalUnitName_default =
 
-commonName                      = Common Name (e.g. server FQDN or YOUR name)
+commonName                      = matthewhill.click
 commonName_max                  = 64
 commonName_default              = matthewhill.click
 
-emailAddress                    = Email Address
+emailAddress                    = matthewpaulh@hotmail.co.uk
 emailAddress_max                = 64
 emailAddress_default            = matthewpaulh@hotmail.co.uk
 
