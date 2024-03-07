@@ -1,10 +1,16 @@
 #!/usr/bin/bash
 
-cd /var/www/portfolio/
+BASEDIR="/var/www/portfolio/"
+
+VOLUMEDIR="/data/certificates/portfolio/"
+
+cd $BASEDIR
 
 /usr/bin/git pull
 
 /usr/bin/systemctl start supervisor
+
+/usr/bin/openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365 -config $BASEDIR/conf/openssl.cnf -nodes
 
 echo "Hello world"
 
