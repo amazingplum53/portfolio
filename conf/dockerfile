@@ -30,7 +30,11 @@ RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
 RUN ln -s $BASEDIR/portfolio/conf/supervisor.conf /etc/supervisor/conf.d/
 
-RUN openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365 -config conf/openssl.cnf -nodes
+RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
+
+WORKDIR /data/certificates/portfolio/
+
+RUN openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365 -config $BASEDIR/portfolio/conf/openssl.cnf -nodes
 
 SHELL ["/usr/bin/bash"]
 
