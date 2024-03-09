@@ -22,7 +22,11 @@ RUN curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/sha
 
 WORKDIR /etc/nginx/
 
-#RUN ln -s $BASEDIR/portfolio/conf/portfolio-nginx.conf ./sites-available
+RUN unlink sites-enabled/default
+
+RUN unlink nginx.conf
+
+RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
 RUN ln -s $BASEDIR/portfolio/conf/supervisor.conf /etc/supervisor/conf.d/
 
