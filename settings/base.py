@@ -65,7 +65,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [ BASE_DIR / 'templates' ],
-        #'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -154,7 +153,7 @@ elif settings == "live":
     from .live import *
 
 else:
-    from .local import *
+    from .docker import *
 
 
 CSRF_TRUSTED_ORIGINS = [ 
