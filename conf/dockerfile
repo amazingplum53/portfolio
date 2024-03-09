@@ -34,6 +34,8 @@ RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
 
 EXPOSE 443
 
+EXPOSE 80
+
 SHELL ["/usr/bin/bash"]
 
 CMD ["/usr/bin/bash", "/var/www/portfolio/conf/run.sh"]
