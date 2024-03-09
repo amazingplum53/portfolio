@@ -12,7 +12,7 @@ cd $BASEDIR
 
 /usr/bin/openssl req -x509 -newkey rsa:4096 -keyout $VOLUMEDIR/key.pem -out $VOLUMEDIR/cert.pem -sha256 -days 365 -config $BASEDIR/conf/openssl.cnf -nodes
 
-/usr/bin/nginx
+/usr/sbin/nginx
 
 echo "Hello world"
 
