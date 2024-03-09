@@ -12,6 +12,7 @@ psycopg2==2.9.6
 requests==2.31.0
 sqlparse==0.4.3
 typing_extensions==4.10.0
+tzdata==2024.1
 urllib3==2.0.3
 zope.event==4.6
 zope.interface==5.5.2
