@@ -32,4 +32,4 @@ RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
 
 EXPOSE 443 80
 
-CMD ["$BASEDIR/venv/bin/gunicorn", "portfolio.wsgi", "--chdir", "$BASEDIR/portfolio", "-c", "$BASEDIR/portfolio/conf/gunicorn.config.py"]
+CMD ["/var/www/venv/bin/gunicorn", "portfolio.wsgi", "--chdir", "/var/www/portfolio", "-c", "/var/www/portfolio/conf/gunicorn.config.py"]
