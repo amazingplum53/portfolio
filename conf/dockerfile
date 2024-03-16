@@ -28,6 +28,8 @@ RUN unlink nginx.conf
 
 RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
+RUN ln -s $BASEDIR/portfolio/conf/supervisor.conf /etc/supervisor/conf.d/
+
 RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
 
 EXPOSE 443 80
