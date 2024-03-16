@@ -4,7 +4,7 @@ from multiprocessing import cpu_count
 from os import environ, chdir
 import subprocess
 
-chdir("/var/www/portfolio")
+chdir(r"/var/www/portfolio")
 
 max_workers = cpu_count
 
