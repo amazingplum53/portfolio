@@ -16,5 +16,4 @@ worker_class = 'gevent'
 workers = max_workers()
 
 def when_ready(server):
-    print("Ready")
-    subprocess.run(["bash", "conf/setup.sh"])
+    subprocess.run(["bash", "/var/www/conf/setup.sh"])
