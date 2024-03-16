@@ -4,8 +4,6 @@ from multiprocessing import cpu_count
 from os import environ, chdir
 import subprocess
 
-chdir(r"/var/www/portfolio")
-
 max_workers = cpu_count
 
 bind = '0.0.0.0:' + environ.get('PORT', '8000')
