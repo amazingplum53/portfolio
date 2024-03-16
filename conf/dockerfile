@@ -16,7 +16,7 @@ RUN python3 -m venv $BASEDIR/venv
 
 RUN venv/bin/python3 -m pip install -r portfolio/conf/requirements.txt
 
-RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring supervisor 
+RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring 
 
 RUN curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
@@ -28,12 +28,8 @@ RUN unlink nginx.conf
 
 RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
-RUN ln -s $BASEDIR/portfolio/conf/supervisor.conf /etc/supervisor/conf.d/
-
 RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
 
 EXPOSE 443 80
 
-SHELL ["/usr/bin/bash"]
-
-CMD ["/usr/bin/bash", "/var/www/portfolio/conf/run.sh"]
+CMD ["$BASEDIR/venv/bin/gunicorn", "portfolio.wsgi", "--chdir", "$BASEDIR/portfolio", "-c", "$BASEDIR/portfolio/conf/gunicorn.config.py"]

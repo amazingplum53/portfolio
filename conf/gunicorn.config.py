@@ -2,6 +2,7 @@
 """gunicorn WSGI server configuration."""
 from multiprocessing import cpu_count
 from os import environ
+import subprocess
 
 
 max_workers = cpu_count
@@ -14,3 +15,4 @@ worker_class = 'gevent'
 
 workers = max_workers()
 
+subprocess.run(["bash", "conf/setup.sh"])
