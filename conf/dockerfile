@@ -38,4 +38,6 @@ WORKDIR $BASEDIR/portfolio
 
 COPY portfolio.env conf/
 
+ENTRYPOINT ["bash", "-c"]
+
 CMD ["/usr/bin/systemctl start supervisor & while :; do sleep 2073600; done"]
