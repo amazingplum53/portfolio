@@ -38,4 +38,4 @@ WORKDIR $BASEDIR/portfolio
 
 COPY portfolio.env conf/
 
-CMD ["/usr/bin/systemctl start supervisor && echo gunicorn running & while :; do sleep 2073600; done"]
+CMD ["/usr/bin/systemctl start supervisor & while :; do sleep 2073600; done"]
