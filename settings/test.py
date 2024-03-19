@@ -1,5 +1,5 @@
-from .postgres import *
-
+#from .postgres import *
+from .sqlite import *
 
 DEBUG = True
 
