@@ -6,17 +6,10 @@ RUN apt-get update
 
 ENV BASEDIR="/var/www" 
 
-RUN mkdir $BASEDIR/
-
-WORKDIR $BASEDIR
-
-RUN apt-get -y install git python3-pip python3.10-venv python3-dev libpq-dev systemctl
-
 RUN git clone https://github.com/amazingplum53/portfolio.git portfolio
 
-RUN python3 -m venv $BASEDIR/venv
 
-RUN venv/bin/python3 -m pip install -r portfolio/conf/requirements.txt
+# Configure Nginx
 
 RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring
 
@@ -31,6 +24,19 @@ RUN unlink nginx.conf
 RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
 RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
+
+
+# Configure Project
+
+RUN mkdir $BASEDIR/
+
+WORKDIR $BASEDIR
+
+RUN apt-get -y install git python3-pip python3.10-venv python3-dev libpq-dev systemctl
+
+RUN python3 -m venv $BASEDIR/venv
+
+RUN venv/bin/python3 -m pip install -r portfolio/conf/requirements.txt
 
 ENV RUN_COMMAND="$BASEDIR/venv/bin/gunicorn portfolio.wsgi --chdir $BASEDIR/portfolio -c $BASEDIR/portfolio/conf/gunicorn.config.py"
 
