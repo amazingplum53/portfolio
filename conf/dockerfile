@@ -6,12 +6,14 @@ RUN apt-get update
 
 ENV BASEDIR="/var/www" 
 
+RUN apt-get -y install git
+
 RUN git clone https://github.com/amazingplum53/portfolio.git portfolio
 
 
 # Configure Nginx
 
-RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring
+RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring 
 
 RUN curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
@@ -32,7 +34,7 @@ RUN mkdir $BASEDIR/
 
 WORKDIR $BASEDIR
 
-RUN apt-get -y install git python3-pip python3.10-venv python3-dev libpq-dev systemctl
+RUN apt-get -y install python3-pip python3.10-venv python3-dev libpq-dev systemctl
 
 RUN python3 -m venv $BASEDIR/venv
 
