@@ -152,7 +152,7 @@ elif settings == "live":
     from .live import *
 
 else:
-    from .docker import *
+    from .local import *
 
 
 CSRF_TRUSTED_ORIGINS = [ 
