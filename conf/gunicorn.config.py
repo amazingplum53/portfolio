@@ -43,7 +43,7 @@ def on_starting(server):
             "-out", f"{VOLUME_DIR}/cert.pem", 
             "-sha256", "-days", "365", 
             "-config", f"{BASE_DIR}/conf/openssl.cnf", 
-            "-nodes"
+            "-nodes", "-noout"
         ])  
 
 
