@@ -14,5 +14,10 @@ worker_class = 'gevent'
 
 workers = max_workers()
 
+
+def on_starting(server):
+    subprocess.run(["/usr/bin/git", "pull"])
+
+
 def when_ready(server):
-    subprocess.run(["bash", "conf/setup.sh"])
+    subprocess.run(["/usr/sbin/nginx"])
