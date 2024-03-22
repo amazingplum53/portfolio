@@ -4,7 +4,7 @@ from multiprocessing import cpu_count
 from os import environ
 import subprocess
 from portfolio.env import get_environ_variables, generate
-from ..settings.base import BASE_DIR, VOLUME_DIR
+from settings.base import BASE_DIR, VOLUME_DIR
 
 
 max_workers = cpu_count
