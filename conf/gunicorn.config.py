@@ -28,7 +28,7 @@ def on_starting(server):
         get_environ_variables(BASE_DIR)
 
     except:
-        generate(".")
+        generate(BASE_DIR)
         get_environ_variables(BASE_DIR)
 
     if environ["SETTINGS"] in ["test", "live"]:
