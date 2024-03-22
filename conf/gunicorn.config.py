@@ -14,6 +14,8 @@ worker_class = 'gevent'
 
 workers = max_workers()
 
+preload_app = True
+
 
 def on_starting(server):
     subprocess.run(["/usr/bin/git", "pull"])
