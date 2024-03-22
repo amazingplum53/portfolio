@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from django.core.management.utils import get_random_secret_key
+
 from os import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,14 +24,11 @@ VOLUME_DIR = "/data/certificates/portfolio"
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 
-from portfolio.env import get_environ_variables, generate
+from portfolio.env import get_environ_variables
 
-try:
-    get_environ_variables(BASE_DIR)
 
-except:
-    generate(BASE_DIR, get_random_secret_key())
-    get_environ_variables(BASE_DIR)
+get_environ_variables(BASE_DIR)
+
 
 # Application definition
 

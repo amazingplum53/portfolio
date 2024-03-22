@@ -1,6 +1,7 @@
 
 from json import load
 from os import environ
+from django.core.management.utils import get_random_secret_key
 
 
 """{
@@ -25,12 +26,12 @@ def get_environ_variables(base_dir):
             environ[variable] = env_data[variable]
 
 
-def generate(base_dir, secret_key):
+def generate(base_dir):
 
     with open(base_dir / "conf" / "portfolio.env", "w") as f:
 
         f.write("{")
         f.write(f"""            
-    "SECRET_KEY": "{secret_key}",
+    "SECRET_KEY": "{get_random_secret_key()}",
     "SETTINGS": "local"\n""")
         f.write("}")
