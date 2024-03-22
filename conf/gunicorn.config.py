@@ -25,11 +25,11 @@ def on_starting(server):
     subprocess.run(["/usr/bin/git", "pull"])
 
     try:
-        get_environ_variables(".")
+        get_environ_variables(BASE_DIR)
 
     except:
         generate(".")
-        get_environ_variables(".")
+        get_environ_variables(BASE_DIR)
 
     if environ["SETTINGS"] in ["test", "live"]:
         pass
