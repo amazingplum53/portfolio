@@ -15,7 +15,7 @@ RUN git clone https://github.com/amazingplum53/portfolio.git $BASEDIR/portfolio
 
 # Configure Nginx
 
-RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring 
+RUN apt-get -y install nginx curl gnupg2 ca-certificates lsb-release ubuntu-keyring dnsutils
 
 RUN curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 
