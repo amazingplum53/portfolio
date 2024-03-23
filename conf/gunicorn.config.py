@@ -25,7 +25,7 @@ def on_starting(server):
 
     subprocess.run(["/usr/bin/git", "pull"])
 
-    if isdir("/certificates/portfolio"):
+    if not isdir("/certificates/portfolio"):
 
         subprocess.run(["mkdir", '/certificates/portfolio/'])
 
