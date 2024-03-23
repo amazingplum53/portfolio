@@ -27,8 +27,6 @@ RUN unlink nginx.conf
 
 RUN ln -s $BASEDIR/portfolio/conf/nginx.conf ./
 
-RUN mkdir /data/ /data/certificates/ /data/certificates/portfolio/
-
 
 # Configure Project
 

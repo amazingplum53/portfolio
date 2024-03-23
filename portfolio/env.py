@@ -26,7 +26,7 @@ def get_environ_variables(base_dir):
             environ[variable] = env_data[variable]
 
 
-def generate(base_dir):
+def generate_env(base_dir):
 
     with open(base_dir / "conf" / "portfolio.env", "w") as f:
 

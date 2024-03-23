@@ -2,8 +2,9 @@
 """gunicorn WSGI server configuration."""
 from multiprocessing import cpu_count
 from os import environ
+from os.path import isdir
 import subprocess
-from portfolio.env import get_environ_variables, generate
+from portfolio.env import get_environ_variables, generate_env
 from settings.base import BASE_DIR, VOLUME_DIR
 
 
@@ -24,31 +25,35 @@ def on_starting(server):
 
     subprocess.run(["/usr/bin/git", "pull"])
 
-    try:
-        get_environ_variables(BASE_DIR)
+    if isdir("/certificates/portfolio"):
 
-    except:
-        generate(BASE_DIR)
-        get_environ_variables(BASE_DIR)
+        subprocess.run(["mkdir", '/certificates/portfolio/'])
 
-    if environ["SETTINGS"] in ["test", "live"]:
-        pass
-    else:
+        try:
+            get_environ_variables(BASE_DIR)
 
-        #/usr/bin/openssl req -x509 -newkey rsa:4096 -keyout $VOLUMEDIR/key.pem -out $VOLUMEDIR/cert.pem -sha256 -days 365 -config $BASEDIR/conf/openssl.cnf -nodes
+        except:
+            generate_env(BASE_DIR)
+            get_environ_variables(BASE_DIR)
 
-        subprocess.run(
-            [
-                "/usr/bin/openssl", "req", "-x509", "-newkey", "rsa:4096", 
-                "-keyout", f"{VOLUME_DIR}/key.pem",
-                "-out", f"{VOLUME_DIR}/cert.pem", 
-                "-sha256", "-days", "365", 
-                "-config", f"{BASE_DIR}/conf/openssl.cnf", 
-                "-nodes"
-            ],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT
-        )  
+        if environ["SETTINGS"] in ["test", "live"]:
+            pass
+        else:
+
+            #/usr/bin/openssl req -x509 -newkey rsa:4096 -keyout $VOLUMEDIR/key.pem -out $VOLUMEDIR/cert.pem -sha256 -days 365 -config $BASEDIR/conf/openssl.cnf -nodes
+
+            subprocess.run(
+                [
+                    "/usr/bin/openssl", "req", "-x509", "-newkey", "rsa:4096", 
+                    "-keyout", f"{VOLUME_DIR}/key.pem",
+                    "-out", f"{VOLUME_DIR}/cert.pem", 
+                    "-sha256", "-days", "365", 
+                    "-config", f"{BASE_DIR}/conf/openssl.cnf", 
+                    "-nodes"
+                ],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.STDOUT
+            )  
 
 
 def when_ready(server):
