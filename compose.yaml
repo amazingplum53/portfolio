@@ -22,11 +22,6 @@ services:
       - "8000:8000"
     volumes:
       - static:/var/www/portfolio/static
-    secrets:
-      - env
-secrets:
-  env:
-    file: ./portfolio.env
 volumes:
   challenge:
   conf:
