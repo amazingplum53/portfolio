@@ -32,7 +32,7 @@ RUN echo "[default]" > ~/.aws/credentials
 
 RUN mkdir /test/ /run/secrets/ /run/secrets/env/
 
-COPY portfolio.env /test/secrets/env/
+COPY ../portfolio.env /test/secrets/env/
 
 RUN ln -s /test/secrets/env/portfolio.env $BASEDIR/portfolio/
     

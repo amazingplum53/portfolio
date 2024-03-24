@@ -17,7 +17,7 @@ services:
       - challenge:/var/www/certbot
       - conf:/etc/letsencrypt
   gunicorn:
-    build: .
+    build: ./gunicorn
     ports:
       - "8000:8000"
     volumes:
