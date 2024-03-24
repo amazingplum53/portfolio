@@ -24,6 +24,8 @@ WORKDIR $BASEDIR/portfolio
 
 ARG settings=local
 
+RUN mkdir ~/.aws
+
 RUN echo "[default]" > ~/.aws/credentials
 
 RUN --mount=type=secret,id=env,dst=$BASEDIR/portfolio \
