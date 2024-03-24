@@ -25,3 +25,7 @@ services:
 secrets:
   env:
     file: portfolio.env
+volumes:
+  - challenge:/certbot-challenge
+  - conf:/letsencrypt
+  - static:/var/www/static  
