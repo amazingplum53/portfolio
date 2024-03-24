@@ -1,8 +1,10 @@
 FROM nginx:latest
 
+#RUN apk update
+#RUN apk add openssl
+
 # Configure Nginx
 
-RUN apk add openssl
 
 SHELL ["/bin/bash", "-c"]
 
