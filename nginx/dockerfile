@@ -11,11 +11,11 @@ COPY nginx.conf ./
 
 COPY openssl.cnf ./
 
-RUN mkdir /etc/letsencrypt/live/ /etc/letsencrypt/live/matthewhill.click/ 
+RUN mkdir /letsencrypt/live/ /letsencrypt/live/matthewhill.click/ 
 
 RUN /usr/bin/openssl req -x509 -newkey rsa:4096 \
-    -keyout /etc/letsencrypt/live/matthewhill.click/privkey.pem \
-    -out /etc/letsencrypt/live/matthewhill.click/fullchain.pem \
+    -keyout /letsencrypt/live/matthewhill.click/privkey.pem \
+    -out /letsencrypt/live/matthewhill.click/fullchain.pem \
     -sha256 -days 365 -config openssl.cnf -nodes
 
 
