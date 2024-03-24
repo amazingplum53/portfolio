@@ -8,20 +8,20 @@ services:
       - "443:443"
       - "8000:8000"
     volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-      - /var/www/portfolio/static
+      - challenge:/certbot-challenge
+      - conf:/letsencrypt
+      - static:/var/www/static
   certbot:
     image: certbot/certbot
     volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+      - challenge:/var/www/certbot
+      - conf:/etc/letsencrypt
   gunicorn:
     build: https://github.com/amazingplum53/portfolio.git#main:gunicorn
     ports:
       - "8000:8000"
     volumes:
-      - /var/www/portfolio/static
+      - static:/var/www/portfolio/static
 secrets:
   env:
     file: portfolio.env
