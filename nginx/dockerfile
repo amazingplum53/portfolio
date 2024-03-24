@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx
 
 #RUN apk update
 #RUN apk add openssl
