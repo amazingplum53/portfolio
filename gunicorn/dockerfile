@@ -22,23 +22,21 @@ ARG settings=local
 
 RUN echo "[default]" > /root/.aws/credentials
 
-RUN --mount=type=secret,id=env,dst=$BASEDIR/portfolio/conf \
-    cat conf/portfolio.env | jq "aws_access_key_id=.aws_access_key_id \n aws_secret_access_key=.aws_secret_access_key" >> /root/.aws/credentials
+RUN --mount=type=secret,id=env,dst=$BASEDIR/portfolio \
+    cat portfolio.env | jq "aws_access_key_id=.aws_access_key_id \n aws_secret_access_key=.aws_secret_access_key" >> /root/.aws/credentials
 
 RUN aws configure
 
 # Configure Project
 
 
-RUN python3 -m pip install -r portfolio/conf/requirements.txt
+RUN python3 -m pip install -r portfolio/requirements.txt
 
-ENV RUN_COMMAND="gunicorn portfolio.wsgi --chdir $BASEDIR/portfolio -c $BASEDIR/portfolio/conf/gunicorn/gunicorn.config.py"
+ENV RUN_COMMAND="gunicorn portfolio.wsgi --chdir $BASEDIR/portfolio -c $BASEDIR/portfolio/gunicorn/gunicorn.config.py"
 
 RUN echo 'alias run="$RUN_COMMAND"' >> ~/.bashrc
 
 EXPOSE 8000
-
-COPY portfolio.env conf/
 
 ENTRYPOINT ["bash", "-c"]
 

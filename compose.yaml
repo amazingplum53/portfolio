@@ -1,20 +1,20 @@
 
 services:
   nginx:
-    build: https://github.com/amazingplum53/portfolio.git#main:conf/nginx/
+    build: https://github.com/amazingplum53/portfolio.git#main:nginx/
     hostname: matthewhill.click
     ports:
       - "80:80"
       - "443:443"
-      - "8000": "8000"
+      - "8000:8000"
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
       - /var/www/portfolio/static
   gunicorn:
-    build: https://github.com/amazingplum53/portfolio.git#main:conf/gunicorn/
+    build: https://github.com/amazingplum53/portfolio.git#main:gunicorn/
     ports:
-      - "8000": "8000"
+      - "8000:8000"
     volumes:
       - /var/www/portfolio/static
   certbot:
