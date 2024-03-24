@@ -1,0 +1,26 @@
+FROM nginx:latest
+
+SHELL ["/bin/bash", "-c"]
+
+RUN apk update 
+
+# Configure Nginx
+
+RUN apk add openssl
+
+WORKDIR /etc/nginx/
+
+RUN unlink sites-enabled/default
+
+RUN unlink nginx.conf
+
+COPY nginx.conf ./
+
+COPY openssl.cnf ./
+
+RUN /usr/bin/openssl req -x509 -newkey rsa:4096 \
+    -keyout /etc/letsencrypt/live/example.org/privkey.pem \
+    -out /etc/letsencrypt/live/example.org/fullchain.pem \
+    -sha256 -days 365 -config openssl.cnf -nodes
+
+

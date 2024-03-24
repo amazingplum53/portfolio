@@ -1,11 +1,27 @@
 
 services:
-  web:
-    build: .
+  nginx:
+    build: https://github.com/amazingplum53/portfolio.git#main:conf/nginx/
+    hostname: matthewhill.click
     ports:
       - "80:80"
       - "443:443"
+      - "8000": "8000"
     volumes:
-      - certificates:/certificates
-volumes:
-  certificates:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+      - /var/www/portfolio/static
+  gunicorn:
+    build: https://github.com/amazingplum53/portfolio.git#main:conf/gunicorn/
+    ports:
+      - "8000": "8000"
+    volumes:
+      - /var/www/portfolio/static
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+secrets:
+  env:
+    file: portfolio.env
