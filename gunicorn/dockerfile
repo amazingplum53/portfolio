@@ -8,7 +8,9 @@ RUN apt-get update
 
 ENV BASEDIR="/var/www" 
 
-RUN apt-get -y install git python3-pip awscli jq dnsutils
+RUN apt-get -y install git python3-pip jq dnsutils
+
+RUN echo "8" | apt-get install awscli
 
 RUN mkdir $BASEDIR/
 
