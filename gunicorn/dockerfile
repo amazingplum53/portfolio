@@ -30,7 +30,7 @@ RUN aws configure
 # Configure Project
 
 
-RUN python3 -m pip install -r portfolio/requirements.txt
+RUN python3 -m pip install -r portfolio/gunicorn/requirements.txt
 
 ENV RUN_COMMAND="gunicorn portfolio.wsgi --chdir $BASEDIR/portfolio -c $BASEDIR/portfolio/gunicorn/gunicorn.config.py"
 

@@ -1,12 +1,10 @@
 FROM nginx:latest
 
-SHELL ["/bin/bash", "-c"]
-
-RUN apk update 
-
 # Configure Nginx
 
 RUN apk add openssl
+
+SHELL ["/bin/bash", "-c"]
 
 WORKDIR /etc/nginx/
 
