@@ -6,7 +6,7 @@ FROM nginx:latest
 # Configure Nginx
 
 
-SHELL ["/bin/bash", "-c"]
+#SHELL ["/bin/bash", "-c"]
 
 WORKDIR /etc/nginx/
 
