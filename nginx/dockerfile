@@ -8,6 +8,8 @@ FROM nginx
 
 #SHELL ["/bin/bash", "-c"]
 
+RUN echo hello
+
 WORKDIR /etc/nginx/
 
 RUN unlink sites-enabled/default
