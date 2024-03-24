@@ -11,7 +11,7 @@ COPY nginx.conf ./
 
 COPY openssl.cnf ./
 
-RUN mkdir /letsencrypt/live/ /letsencrypt/live/matthewhill.click/ 
+RUN mkdir /letsencrypt/ /letsencrypt/live/ /letsencrypt/live/matthewhill.click/ 
 
 RUN /usr/bin/openssl req -x509 -newkey rsa:4096 \
     -keyout /letsencrypt/live/matthewhill.click/privkey.pem \
