@@ -11,17 +11,17 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
       - /var/www/portfolio/static
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
   gunicorn:
     build: https://github.com/amazingplum53/portfolio.git#main:gunicorn
     ports:
       - "8000:8000"
     volumes:
       - /var/www/portfolio/static
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
 secrets:
   env:
     file: portfolio.env
