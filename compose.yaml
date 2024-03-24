@@ -17,7 +17,7 @@ services:
       - challenge:/var/www/certbot
       - conf:/etc/letsencrypt
   gunicorn:
-    build: https://github.com/amazingplum53/portfolio.git#main:gunicorn
+    build: .
     ports:
       - "8000:8000"
     volumes:
