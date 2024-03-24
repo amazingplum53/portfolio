@@ -5,16 +5,7 @@ FROM nginx
 
 # Configure Nginx
 
-
-#SHELL ["/bin/bash", "-c"]
-
 WORKDIR /etc/nginx/
-
-RUN ls
-
-RUN unlink sites-enabled/default
-
-RUN unlink nginx.conf
 
 COPY nginx.conf ./
 
