@@ -25,10 +25,11 @@ workers = max_workers()
 
 def on_starting(server):
 
+    from portfolio.env import get_environ_variables, generate_env
+
     run(["/usr/bin/git", "pull"])
 
     try:
-        from portfolio.env import get_environ_variables, generate_env
 
         get_environ_variables(BASE_DIR)
 
