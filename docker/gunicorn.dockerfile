@@ -2,9 +2,9 @@ FROM python:latest
 
 ENV BASEDIR="/var/www" 
 
-WORKDIR $BASEDIR
+RUN git clone https://github.com/amazingplum53/portfolio.git $BASEDIR/portfolio
 
-RUN git clone https://github.com/amazingplum53/portfolio.git portfolio
+WORKDIR $BASEDIR/portfolio
 
 #COPY portfolio.env portfolio/docker/
 
