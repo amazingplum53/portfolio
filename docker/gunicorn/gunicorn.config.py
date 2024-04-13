@@ -3,7 +3,7 @@
 from multiprocessing import cpu_count
 from os import environ
 from subprocess import run
-
+from sys import path
 
 max_workers = cpu_count
 
@@ -14,6 +14,8 @@ max_requests = 1000
 worker_class = 'gevent'
 
 workers = max_workers()
+
+path.append("/var/www/portfolio")
 
 
 def on_starting(server):
