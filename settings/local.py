@@ -1,6 +1,5 @@
 
-from .base import BASE_DIR, VOLUME_DIR
-import subprocess
+from .base import BASE_DIR
 
 
 DATABASES = {
