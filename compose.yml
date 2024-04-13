@@ -34,7 +34,7 @@ services:
     expose:
       - 8000
     entrypoint: ["gunicorn"]
-    command: ["portfolio.wsgi", "--chdir", "/var/www/portfolio/portfolio", "-c", "/var/www/portfolio/docker/gunicorn/gunicorn.config.py"]
+    command: ["portfolio.wsgi", "--chdir", "/var/www/portfolio", "-c", "/var/www/portfolio/docker/gunicorn/gunicorn.config.py"]
 
 volumes:
   challenge:
