@@ -1,0 +1,43 @@
+
+services:
+  nginx:
+    build: 
+      context: https://github.com/amazingplum53/portfolio.git#master:docker
+      dockerfile: nginx.dockerfile
+    hostname: matthewhill.click
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - encrypt:/letsencrypt
+      - challenge:/var/www/certbot
+      - static:/static
+    depends_on:
+      - certbot
+    entrypoint: ["bash", "-c"]
+    command: ["nginx -c /etc/nginx/nginx.conf -g 'daemon off;' & /var/controller.sh"]
+
+  certbot:
+    build: 
+      context: https://github.com/amazingplum53/portfolio.git#master:docker
+      dockerfile: certbot.dockerfile
+    volumes:
+      - encrypt:/etc/letsencrypt
+      - challenge:/var/www/certbot  
+    entrypoint: ["/bin/bash"]
+    command: ["/var/renew.sh"]
+
+  gunicorn:
+    build:
+      context: https://github.com/amazingplum53/portfolio.git#master:docker
+      dockerfile: gunicorn.dockerfile
+    expose:
+      - 8000
+    entrypoint: ["gunicorn"]
+    command: ["portfolio.wsgi", "--chdir", "/var/www/portfolio/portfolio", "-c", "/var/www/portfolio/docker/gunicorn/gunicorn.config.py"]
+
+volumes:
+  challenge:
+  encrypt:
+  static: 
+
