@@ -1,7 +1,5 @@
 FROM python:latest
 
-RUN pip install gunicorn gevent
-
 ENV BASEDIR="/var/www" 
 
 WORKDIR $BASEDIR
