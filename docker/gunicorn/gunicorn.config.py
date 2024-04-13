@@ -2,9 +2,15 @@
 """gunicorn WSGI server configuration."""
 from multiprocessing import cpu_count
 from os import environ
-from portfolio.env import get_environ_variables, generate_env
-from settings.base import BASE_DIR
+from pathlib import Path
 from subprocess import run
+from sys import path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+path.append(BASE_DIR)
+
+environ["BASE_DIR"] = BASE_DIR
 
 max_workers = cpu_count
 
@@ -22,6 +28,8 @@ def on_starting(server):
     run(["/usr/bin/git", "pull"])
 
     try:
+        from portfolio.env import get_environ_variables, generate_env
+
         get_environ_variables(BASE_DIR)
 
     except:
