@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 path.append(BASE_DIR)
 
-environ["BASE_DIR"] = BASE_DIR
+environ["BASE_DIR"] = str(BASE_DIR)
 
 max_workers = cpu_count
 
