@@ -2,7 +2,7 @@
 from json import load
 from os import environ
 from django.core.management.utils import get_random_secret_key
-from settings.base import BASE_DIR
+from pathlib import Path
 
 
 """{
@@ -14,6 +14,9 @@ from settings.base import BASE_DIR
     "server username": "master",
     "server password": "password"
 }"""
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 def get_environ_variables():
