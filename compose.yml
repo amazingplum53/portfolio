@@ -2,7 +2,7 @@
 services:
   nginx:
     build: 
-      context: https://github.com/amazingplum53/portfolio.git#master:docker
+      context: https://github.com/amazingplum53/portfolio.git#main:docker
       dockerfile: nginx.dockerfile
     hostname: matthewhill.click
     ports:
@@ -19,7 +19,7 @@ services:
 
   certbot:
     build: 
-      context: https://github.com/amazingplum53/portfolio.git#master:docker
+      context: https://github.com/amazingplum53/portfolio.git#main:docker
       dockerfile: certbot.dockerfile
     volumes:
       - encrypt:/etc/letsencrypt
@@ -29,7 +29,7 @@ services:
 
   gunicorn:
     build:
-      context: https://github.com/amazingplum53/portfolio.git#master:docker
+      context: https://github.com/amazingplum53/portfolio.git#main:docker
       dockerfile: gunicorn.dockerfile
     expose:
       - 8000
