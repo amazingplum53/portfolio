@@ -6,7 +6,7 @@ from pathlib import Path
 from subprocess import run
 from sys import path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = "/var/www/portfolio"
 
 path.append(BASE_DIR)
 
