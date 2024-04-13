@@ -17,7 +17,7 @@ from django.core.management.utils import get_random_secret_key
 
 def get_environ_variables(base_dir):
 
-    with open(base_dir / "docker" / "portfolio.env") as f:
+    with open(base_dir + "/docker/portfolio.env") as f:
 
         env_data = load(f)
 
@@ -28,7 +28,7 @@ def get_environ_variables(base_dir):
 
 def generate_env(base_dir):
 
-    with open(base_dir / "docker" / "portfolio.env", "w") as f:
+    with open(base_dir + "/docker/portfolio.env", "w") as f:
 
         f.write("{")
         f.write(f"""            
