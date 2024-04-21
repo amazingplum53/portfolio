@@ -8,6 +8,8 @@ WORKDIR $BASEDIR/portfolio
 
 #COPY portfolio.env portfolio/docker/
 
+COPY docker/gunicorn.dockerfile ./
+
 RUN python3 -m pip install -r docker/gunicorn/requirements.txt
 
 #ENV RUN_COMMAND="gunicorn portfolio.wsgi --chdir $BASEDIR/portfolio/portfolio -c $BASEDIR/portfolio/docker/gunicorn/gunicorn.config.py"
