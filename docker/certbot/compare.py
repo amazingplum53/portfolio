@@ -19,7 +19,3 @@ if __name__ == "__main__":
     result = day_difference(argv[1], argv[2])
 
     print(result)
-
-    x = datetime.now()
-
-    x.strftime()
