@@ -49,10 +49,15 @@ services:
     expose:
       - 8000
     entrypoint: ["gunicorn"]
-    command: ["portfolio.wsgi", "--chdir", "/var/www/portfolio", "-c", "/var/www/portfolio/docker/gunicorn/gunicorn.config.py"]
-
+    command: ["portfolio.wsgi", "-c", "gunicorn.config.py"]
+    secrets:
+      - secret_file
+    
 volumes:
   challenge:
   encrypt:
   static: 
 
+secrets:
+  secret_file:
+    file: portfolio.env
