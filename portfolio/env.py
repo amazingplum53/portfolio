@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 def get_environ_variables():
 
-    with open(BASE_DIR / "docker" / "portfolio.env") as f:
+    with open("/run/secrets/portfolio.env") as f:
 
         env_data = load(f)
 
@@ -32,7 +32,7 @@ def get_environ_variables():
 
 def generate_env():
 
-    with open(BASE_DIR / "docker" / "portfolio.env", "w") as f:
+    with open("/run/secrets/portfolio.env") as f:
 
         f.write("{")
         f.write(f"""            
