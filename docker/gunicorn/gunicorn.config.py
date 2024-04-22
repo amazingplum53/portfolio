@@ -17,6 +17,8 @@ workers = max_workers()
 
 path.append("/var/www/portfolio")
 
+environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.base')
+
 
 def on_starting(server):
 
