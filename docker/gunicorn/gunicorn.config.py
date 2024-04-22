@@ -19,6 +19,8 @@ path.append("/var/www/portfolio")
 
 environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.base')
 
+preload_app = False
+
 
 def on_starting(server):
 
