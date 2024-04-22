@@ -1,4 +1,3 @@
-gevent
 Django
 gunicorn
 mailjet-rest
