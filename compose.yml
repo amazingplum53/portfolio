@@ -48,6 +48,9 @@ services:
           memory: 150M
     expose:
       - 8000
+    volumes:
+      - static:/var/www/portfolio/static    
+    #entrypoint: ["tail", "-f", "/dev/null"]
     entrypoint: ["gunicorn"]
     command: ["portfolio.wsgi", "-c", "gunicorn.config.py"]
     secrets:
