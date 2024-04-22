@@ -45,7 +45,7 @@ services:
       resources:
         limits:
           cpus: '0.50'
-          memory: 150M
+          memory: 200M
     expose:
       - 8000
     volumes:
