@@ -60,5 +60,5 @@ volumes:
   static: 
 
 secrets:
-  portfolio.env.:
+  portfolio.env:
     file: portfolio.env
