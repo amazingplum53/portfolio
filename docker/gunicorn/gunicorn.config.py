@@ -29,7 +29,6 @@ def on_starting(server):
     run(["/usr/bin/git", "pull"])
 
     try:
-
         get_environ_variables()
 
     except:
