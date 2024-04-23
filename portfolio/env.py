@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 def get_environ_variables():
 
-    with open("/run/secrets/secret_file") as f:
+    with open("/run/secrets/portfolio.env") as f:
 
         env_data = load(f)
 
@@ -35,7 +35,7 @@ def generate_env():
 
     run(["mkdir", "/run/", "/run/secrets/"])
 
-    with open("/run/secrets/secret_file") as f:
+    with open("/run/secrets/portfolio.env") as f:
 
         f.write("{")
         f.write(f"""            

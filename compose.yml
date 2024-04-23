@@ -52,7 +52,7 @@ services:
     entrypoint: ["gunicorn"]
     command: ["portfolio.wsgi", "-c", "gunicorn.config.py"]
     secrets:
-      - secret_file
+      - portfolio.env
     
 volumes:
   challenge:
@@ -60,5 +60,5 @@ volumes:
   static: 
 
 secrets:
-  secret_file:
+  portfolio.env.:
     file: portfolio.env
