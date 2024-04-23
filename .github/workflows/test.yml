@@ -1,0 +1,25 @@
+name: Portfolio test suite
+
+on: 
+  push:
+    branches:
+      - main
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'https://github.com/amazingplum53/portfolio.git'
+          sparse-checkout: |
+            compose.yml
+          sparse-checkout-cone-mode: false
+      - name: Build the stack
+        run: docker-compose build
+      - name: Unit Tests 
+        run: docker compose run gunicorn python3 manage.py test
+      #- name: Run containers
+        #run: docker-compose up -d
+      #- name: def
+        #run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
