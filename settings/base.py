@@ -16,11 +16,7 @@ from os import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
-from portfolio.env import get_environ_variables, BASE_DIR
-
-
-get_environ_variables()
-
+from portfolio.env import BASE_DIR
 
 # Application definition
 
