@@ -2,8 +2,6 @@
 from json import load
 from os import environ
 from django.core.management.utils import get_random_secret_key
-from pathlib import Path
-from subprocess import run
 
 
 """{
@@ -15,9 +13,6 @@ from subprocess import run
     "server username": "master",
     "server password": "password"
 }"""
-
-
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 def get_environ_variables():

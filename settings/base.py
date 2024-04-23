@@ -12,11 +12,17 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 
 from os import environ
+from portfolio.env import generate_env
+
+if not "SECRET_KEY" in environ:
+    generate_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
+from pathlib import Path
 
-from portfolio.env import BASE_DIR
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Application definition
 
