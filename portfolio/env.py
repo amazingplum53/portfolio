@@ -3,6 +3,7 @@ from json import load
 from os import environ
 from django.core.management.utils import get_random_secret_key
 from pathlib import Path
+from subprocess import run
 
 
 """{
@@ -31,6 +32,8 @@ def get_environ_variables():
 
 
 def generate_env():
+
+    run(["mkdir", "/run/", "/run/secrets/"])
 
     with open("/run/secrets/secret_file") as f:
 
