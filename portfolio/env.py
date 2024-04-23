@@ -33,12 +33,7 @@ def get_environ_variables():
 
 def generate_env():
 
-    run(["mkdir", "/run/", "/run/secrets/"])
+    # If settings aren't found generate generate values
 
-    with open("/run/secrets/portfolio.env", "w") as f:
-
-        f.write("{")
-        f.write(f"""            
-    "SECRET_KEY": "{get_random_secret_key()}",
-    "SETTINGS": "local"\n""")
-        f.write("}")
+    environ["SECRET_KEY"] = get_random_secret_key()
+    environ["SETTINGS"] = "local"
