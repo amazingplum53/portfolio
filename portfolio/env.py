@@ -35,7 +35,7 @@ def generate_env():
 
     run(["mkdir", "/run/", "/run/secrets/"])
 
-    with open("/run/secrets/portfolio.env") as f:
+    with open("/run/secrets/portfolio.env", "w") as f:
 
         f.write("{")
         f.write(f"""            
