@@ -17,8 +17,6 @@ services:
       - encrypt:/letsencrypt
       - challenge:/var/www/certbot
       - static:/static
-    depends_on:
-      - certbot
     entrypoint: ["bash", "-c"]
     command: ["nginx -c /etc/nginx/nginx.conf -g 'daemon off;' & /var/controller.sh"]
 
