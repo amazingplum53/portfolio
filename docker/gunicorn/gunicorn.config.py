@@ -34,6 +34,5 @@ def on_starting(server):
 
     except:
         generate_env()
-        get_environ_variables()
 
     run(["python3", "manage.py", "migrate"])
