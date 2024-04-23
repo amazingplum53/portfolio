@@ -20,7 +20,7 @@ jobs:
       - name: Build the stack
         run: docker-compose build
       - name: Unit Tests 
-        run: docker compose run gunicorn python3 manage.py test
+        run: docker compose run portfolio_gunicorn python3 manage.py test
       #- name: Run containers
         #run: docker-compose up -d
       #- name: def
