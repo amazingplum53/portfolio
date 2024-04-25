@@ -2,7 +2,7 @@
 services:
   nginx:
     build: 
-      context: https://github.com/amazingplum53/portfolio.git#main:docker
+      context: https://github.com/amazingplum53/portfolio.git#main:.docker
       dockerfile: nginx.dockerfile
     deploy:
       resources:
@@ -22,7 +22,7 @@ services:
 
   certbot:
     build: 
-      context: https://github.com/amazingplum53/portfolio.git#main:docker
+      context: https://github.com/amazingplum53/portfolio.git#main:.docker
       dockerfile: certbot.dockerfile
     deploy:
       resources:
@@ -37,7 +37,7 @@ services:
 
   gunicorn:
     build:
-      context: https://github.com/amazingplum53/portfolio.git#main:docker
+      context: https://github.com/amazingplum53/portfolio.git#main:.docker
       dockerfile: gunicorn.dockerfile
     deploy:
       resources:
