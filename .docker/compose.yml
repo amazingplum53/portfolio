@@ -6,6 +6,8 @@ services:
       context: https://github.com/amazingplum53/portfolio.git#main:.docker
       dockerfile: nginx.dockerfile
     hostname: matthewhill.click
+    ports:
+      - "80:80"
       
   gunicorn:
     image: amazingplum/gunicorn-portfolio:latest
