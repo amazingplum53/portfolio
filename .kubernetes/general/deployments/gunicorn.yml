@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gunicorn
+  labels: 
+    app: gunicorn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gunicorn
+  template:
+    metadata:
+      labels:
+        app: gunicorn
+    spec:
+      containers:
+      - name: gunicorn
+        image: amazingplum/gunicorn:latest
+        ports:
+        - containerPort: 8001
+          protocol: TCP

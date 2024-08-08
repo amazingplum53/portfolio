@@ -1,0 +1,15 @@
+
+services:
+  http:
+    image: amazingplum/http:latest
+    build: 
+      context: https://github.com/amazingplum53/portfolio.git#master:.docker
+      dockerfile: nginx.dockerfile
+    hostname: matthewhill.click
+      
+  gunicorn:
+    image: amazingplum/gunicorn-portfolio:latest
+    build:
+      context: https://github.com/amazingplum53/portfolio.git#master:.docker
+      dockerfile: gunicorn.dockerfile
+
