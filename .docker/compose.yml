@@ -1,7 +1,7 @@
 
 services:
   http:
-    image: amazingplum/http:latest
+    image: amazingplum/http-portfolio:latest
     build: 
       context: https://github.com/amazingplum53/portfolio.git#main:.docker
       dockerfile: nginx.dockerfile
