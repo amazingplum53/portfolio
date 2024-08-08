@@ -16,14 +16,14 @@ def home(request):
 
 def contact(request):
 
-    form = ContactForm(request.POST)
-
     if request.method == "POST":
+
+        form = ContactForm(request.POST)
 
         if form.is_valid():
 
             html_content = render_to_string(
-                "contact_email.html", 
+                "homepage/contact_email.html", 
                 {
                     "sender": form.cleaned_data["sender"],
                     "message": form.cleaned_data["message"],
