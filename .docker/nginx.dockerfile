@@ -2,11 +2,11 @@ FROM nginx:latest
 
 WORKDIR /etc/nginx/
 
-COPY nginx/http.conf /etc/nginx/
+COPY .docker/nginx/http.conf /etc/nginx/
 
 RUN mkdir /static/
 
-COPY ../static /static/
+COPY static /static/
 
 EXPOSE 80
 

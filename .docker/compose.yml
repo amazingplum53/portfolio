@@ -3,7 +3,7 @@ services:
   http:
     image: amazingplum/http-portfolio:latest
     build: 
-      context: https://github.com/amazingplum53/portfolio.git#main:.docker
+      context: https://github.com/amazingplum53/portfolio.git#main
       dockerfile: nginx.dockerfile
     hostname: matthewhill.click
     ports:
