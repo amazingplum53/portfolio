@@ -17,7 +17,7 @@ spec:
       serviceAccountName: readonly
       containers:
       - name: gunicorn
-        image: amazingplum/gunicorn:latest
+        image: amazingplum/http-portfolio:latest
         ports:
         - containerPort: 8001
           protocol: TCP

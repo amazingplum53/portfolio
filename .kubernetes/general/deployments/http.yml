@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: http
-        image: amazingplum/http:latest
+        image: amazingplum/gunicorn-portfolio:latest
         ports:
         - containerPort: 80
           protocol: TCP
