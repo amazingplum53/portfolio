@@ -4,14 +4,14 @@ from multiprocessing import cpu_count
 from os import environ
 from subprocess import run
 from sys import path
+from json import loads
+from portfolio.env import generate_env
 
 max_workers = cpu_count
 
 bind = '0.0.0.0:' + environ.get('PORT', '8001')
 
 max_requests = 1000
-
-#worker_class = 'gevent'
 
 workers = max_workers()
 
@@ -24,14 +24,24 @@ preload_app = False
 
 def on_starting(server):
 
-    from portfolio.env import get_environ_variables, generate_env
+    run(["/usr/bin/git", "pull"])    
 
-    run(["/usr/bin/git", "pull"])
+    if "SETTINGS" not in environ:
 
-    try:
-        get_environ_variables()
+        try:
+            output = run(["gcloud", "secrets", "versions", "access", "access", "1", "--secret=env_file"], capture_output=True).stdout   # gcloud secrets versions access 1 --secret=env_file 
+            env_data = loads(output)
 
-    except:
-        generate_env()
+            for variable in env_data:
+
+                environ[variable] = env_data[variable]
+
+            print(f"Environment variables loaded. Using {environ["SETTINGS"]} settings")            
+        
+        except:
+
+            generate_env()
+
+            print("Environment variables not found. Using local settings.")
 
     run(["python3", "manage.py", "migrate"])
