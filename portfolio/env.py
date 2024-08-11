@@ -7,8 +7,8 @@ from django.core.management.utils import get_random_secret_key
 """{
     "SECRET_KEY": "abc123",
     "SETTINGS": "local",
-    "email application key": "def456",
-    "email secret key": "ghi789",
+    "EMAIL_APPLICATION_KEY": "def456",
+    "EMAIL_SECRET_KEY": "ghi789",
     "server hostname": "somewhere.com",
     "server username": "master",
     "server password": "password"

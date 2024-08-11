@@ -18,9 +18,9 @@ def send_email(
 
     recipient = "matthewpaulh@hotmail.co.uk"
 
-    app_key = environ["email application key"]
+    app_key = environ["EMAIL_APPLICATION_KEY"]
 
-    secret_key = environ["email secret key"]
+    secret_key = environ["EMAIL_SECRET_KEY"]
 
     email_client = Client(auth = (app_key, secret_key), version = 'v3.1')
 
