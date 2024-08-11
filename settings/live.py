@@ -1,12 +1,9 @@
-from .postgres import *
+from .sqlite import *
 
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
-
-"""
 ALLOWED_HOSTS = [
     'matthewhill.click',
 ]
-"""
+
