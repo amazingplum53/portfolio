@@ -5,7 +5,7 @@ metadata:
   labels: 
     app: gunicorn
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: gunicorn
@@ -32,7 +32,7 @@ spec:
 
 ---
 
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
   name: gunicorn
@@ -49,5 +49,5 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 7S0  # Scale based on CPU utilization
+        averageUtilization: 70  # Scale based on CPU utilization
 
