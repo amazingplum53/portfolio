@@ -36,7 +36,7 @@ def on_starting(server):
 
                 environ[key] = value
 
-            print(f"Environment variables loaded. Using {environ["SETTINGS"]} settings")            
+            print(f"Environment variables loaded. Using {environ['SETTINGS']} settings")            
         
         except:
 
