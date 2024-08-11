@@ -18,6 +18,7 @@ spec:
       containers:
       - name: gunicorn
         image: amazingplum/http-portfolio:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8001
           protocol: TCP
