@@ -22,3 +22,10 @@ spec:
         ports:
         - containerPort: 8001
           protocol: TCP
+        volumeMounts:
+        - name: secret
+          mountPath: /var/secrets/environ
+      volumes:
+      - name: secret
+        secret:
+          secretName: env-file

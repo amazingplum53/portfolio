@@ -4,7 +4,7 @@ from multiprocessing import cpu_count
 from os import environ
 from subprocess import run
 from sys import path
-from json import loads
+from json import load
 from portfolio.env import generate_env
 
 max_workers = cpu_count
@@ -29,12 +29,12 @@ def on_starting(server):
     if "SETTINGS" not in environ:
 
         try:
-            output = run(["gcloud", "secrets", "versions", "access", "access", "1", "--secret=env_file"], capture_output=True).stdout   # gcloud secrets versions access 1 --secret=env_file 
-            env_data = loads(output)
+            with open('/var/secrets/environ/env-file', 'r') as f:
+                env_data = load(f)
 
-            for variable in env_data:
+            for key, value in env_data.items():
 
-                environ[variable] = env_data[variable]
+                environ[key] = value
 
             print(f"Environment variables loaded. Using {environ["SETTINGS"]} settings")            
         
