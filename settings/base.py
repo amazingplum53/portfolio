@@ -135,20 +135,32 @@ SECRET_KEY = environ["SECRET_KEY"]
 # Get settings files
 
 
-settings = environ["SETTINGS"]
+SETTINGS = environ["SETTINGS"]
 
-if settings == "test":
+protocol = 'https'
+
+if SETTINGS == "test":
 
     from .test import *
 
-elif settings == "live":
+elif SETTINGS == "live":
 
     from .live import *
 
 else:
     from .local import *
+    protocol = 'http'
 
+
+from ipaddress import ip_network
+
+ip_range = '35.191.0.0/16'
+network = ip_network(ip_range)
+
+ip_addresses = [str(ip) for ip in network]
+
+ALLOWED_HOSTS += ip_addresses
 
 CSRF_TRUSTED_ORIGINS = [ 
-    f"https://{address}" for address in ALLOWED_HOSTS
+    f"{protocol}://{address}" for address in ALLOWED_HOSTS
 ]
