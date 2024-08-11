@@ -29,7 +29,7 @@ def on_starting(server):
     if "SETTINGS" not in environ:
 
         try:
-            with open('/var/secrets/environ/env-file', 'r') as f:
+            with open('/var/secrets/environ/.env', 'r') as f:
                 env_data = load(f)
 
             for key, value in env_data.items():
