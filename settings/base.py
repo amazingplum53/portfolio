@@ -151,16 +151,9 @@ else:
     from .local import *
     protocol = 'http'
 
-
-from ipaddress import ip_network
-
-ip_range = '35.191.0.0/16'
-network = ip_network(ip_range)
-
-ip_addresses = [str(ip) for ip in network]
-
-ALLOWED_HOSTS += ip_addresses
-
 CSRF_TRUSTED_ORIGINS = [ 
     f"{protocol}://{address}" for address in ALLOWED_HOSTS
 ]
+
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['*']
