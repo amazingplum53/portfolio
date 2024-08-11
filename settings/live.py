@@ -3,7 +3,10 @@ from .postgres import *
 
 DEBUG = False
 
+ALLOWED_HOSTS = ['*']
+
+"""
 ALLOWED_HOSTS = [
     'matthewhill.click',
 ]
-
+"""
