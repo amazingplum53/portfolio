@@ -65,5 +65,6 @@
   .container li {
     padding: 15px;
     background-color: #f5f5f5;
+    list-style-type: none;
   }  
     
