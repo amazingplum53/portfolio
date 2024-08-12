@@ -5,7 +5,6 @@ metadata:
   labels: 
     app: gunicorn
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: gunicorn
@@ -32,7 +31,7 @@ spec:
 
 ---
 
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: gunicorn
@@ -42,7 +41,7 @@ spec:
     kind: Deployment
     name: gunicorn
   minReplicas: 0  # Scale down to zero replicas
-  maxReplicas: 3  # Maximum number of replicas
+  maxReplicas: 2  # Maximum number of replicas
   metrics:
   - type: Resource
     resource:
