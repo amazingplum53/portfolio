@@ -1,11 +1,9 @@
 
 
-from blog.models import Article
-from blog.context_processor import category_context_processor
+from blog.models import Article, Category
 
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.template import RequestContext
 
 
 def featured(request):
@@ -15,10 +13,11 @@ def featured(request):
     return render(
         request,
         "blog/reader/featured.html",
-        {"articles": recent_articles},
-        context_instance = RequestContext(request, processors=[category_context_processor])
+        {
+            'Categories': Category.objects.all(),
+            "articles": recent_articles,
+        },
     )
-
 
 def article(request, article_id):
 
@@ -35,8 +34,10 @@ def article(request, article_id):
     return render(
         request,
         "blog/reader/article.html",
-        {"article": article},
-        context_instance = RequestContext(request, processors=[category_context_processor])
+        {
+            'Categories': Category.objects.all(),
+            "article": article
+        }
     )
 
 
@@ -45,8 +46,7 @@ def author_view(request):
     return render(
         request,
         "blog/author/article.html",
-        {"articles": Article.objects.all()},
-        context_instance = RequestContext(request, processors=[category_context_processor])
+        {"articles": Article.objects.all()}
     )
 
 
