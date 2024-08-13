@@ -4,6 +4,8 @@
 
 {% block header %}{{ article.title }}{% endblock %}
 
+{% block content %}
+
   {% for info in content %}   
     {% if info.type == "paragraph" %}   
 
