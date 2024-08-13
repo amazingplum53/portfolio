@@ -7,13 +7,13 @@
 {% block content %}
 
   {% for info in content %}   
-    {% if info.type == "paragraph" %}   
+    {% if info.type == "image" %}   
 
     <img src="{{ info.image.source.url }}">
 
     <p class = "caption">{{ info.image.caption }}</p>
 
-    {% elif info.type == "image" %}
+    {% elif info.type == "paragraph" %}
 
     <p class = "paragraph">{{ info.paragraph }}</p>
 
