@@ -4,16 +4,16 @@
 
 {% block header %}{{ article.title }}{% endblock %}
 
-  {% for content in article.get_content %}   
-    {% if content.content_type == "paragraph" %}   
+  {% for info in content %}   
+    {% if info.type == "paragraph" %}   
 
-    <img src="{{ content.source.url }}">
+    <img src="{{ info.image.source.url }}">
 
-    <p class = "caption">{{ content.caption }}</p>
+    <p class = "caption">{{ info.image.caption }}</p>
 
-    {% elif content.content_type == "image" %}
+    {% elif info.type == "image" %}
 
-    <p class = "paragraph">{{ content.text }}</p>
+    <p class = "paragraph">{{ info.paragraph }}</p>
 
     {% endif %}
   {% endfor %}

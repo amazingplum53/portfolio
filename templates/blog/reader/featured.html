@@ -6,9 +6,9 @@
 
 {% for article in articles %}
 
-  <div>
+  <a href = "/blog/article/{{ article.id }}">
     <h2>
-      <href = "/blog/article/{{ article.id }}"> {{ article.title }} </href>
+      {{ article.title }}
     </h2>
     <p>
       {{ article.release_date }}
@@ -16,7 +16,7 @@
     <p>
       {{ article.get_first_paragraph }}
     </p>
-  </div>
+  </a>
 
 {% endfor %}
 

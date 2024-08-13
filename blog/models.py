@@ -27,6 +27,8 @@ class Article(Model):
 
     content = TextField()
 
+    content_type = "paragraph"    
+
     def get_first_paragraph(self):
 
         return self.content.split("\n")[0]
@@ -37,14 +39,17 @@ class Article(Model):
 
         paragraphs = self.content.split("\n")
 
-        content = [p for p in paragraphs]
+        content = [
+            {"paragraph": p, "type": "paragraph"}
+            for p in paragraphs
+        ]
 
         for index, image in enumerate(images):
 
-            content.insert(image.position + index, image)
+            content.insert(image.position + index, {"image": image, "type": "image"})
 
         return content
-    
+
 
 class Image(Model):
 
@@ -55,4 +60,5 @@ class Image(Model):
     caption = CharField(max_length = 200)
 
     position = IntegerField() # No of paragraphs
+
 
