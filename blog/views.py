@@ -14,10 +14,32 @@ def featured(request):
         request,
         "blog/reader/featured.html",
         {
-            'Categories': Category.objects.all(),
+            'categories': Category.objects.all(),
             "articles": recent_articles,
         },
     )
+
+
+def category(request, category_id):
+
+    try:
+        category = Category.objects.get(id = category_id)
+
+        articles = Article.objects.filter(category = category)
+
+    except:
+        return HttpResponseRedirect("/blog/featured/")
+    
+    return render(
+        request,
+        "blog/reader/category.html",
+        {
+            'categories': Category.objects.all(),
+            "category": category,
+            "articles": articles
+        }
+    )
+
 
 def article(request, article_id):
 
@@ -35,7 +57,7 @@ def article(request, article_id):
         request,
         "blog/reader/article.html",
         {
-            'Categories': Category.objects.all(),
+            'categories': Category.objects.all(),
             "article": article
         }
     )
