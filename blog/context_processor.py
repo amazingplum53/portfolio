@@ -1,5 +1,5 @@
 
-from models import Category
+from blog.models import Category
 
 def category_context_processor(request):
     return {
