@@ -1,7 +1,7 @@
 
 
 from blog.models import Article
-from context_processor import category_context_processor
+from blog.context_processor import category_context_processor
 
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
