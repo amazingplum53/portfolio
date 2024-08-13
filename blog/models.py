@@ -27,8 +27,6 @@ class Article(Model):
 
     content = TextField()
 
-    content_type = "paragraph"    
-
     def get_first_paragraph(self):
 
         return self.content.split("\n")[0]
