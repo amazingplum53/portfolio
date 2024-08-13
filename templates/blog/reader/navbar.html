@@ -6,13 +6,12 @@
         Home
       </a></div>
 
-      <div><a href = '/blog/food/'>
-        Food
+      {% for category in Categories %}
+
+      <div><a href = '/blog/{{category.id}}/'>
+        {{ category.name }}
       </a></div>
 
-      <div><a href = '/blog/sport/'>
-        Food
-      </a></div>
-    
+      {% endfor %}    
     </ul>
 </nav>
