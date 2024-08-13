@@ -25,6 +25,10 @@ class Article(Model):
 
     content = TextField()
 
+    def get_first_paragraph(self):
+
+        return self.content.split("\n")[0]
+
     def get_content(self):
 
         images = Image.objects.filter(article = self)
