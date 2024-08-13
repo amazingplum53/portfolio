@@ -32,7 +32,7 @@ def article(request, article_id):
     return render(
         request,
         "blog/reader/article.html",
-        {"content": article.get_content()}
+        {"content": article}
     )
 
 

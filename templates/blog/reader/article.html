@@ -1,21 +1,21 @@
 {% extends "blog/reader/base.html" %}
 
-{% block title %}{{ article.category }}{% endblock %}
+{% block title %}{{ article.category.name }}{% endblock %}
 
 {% block header %}{{ article.title }}{% endblock %}
 
 {% block content %}
 
-  {% for info in content %}   
-    {% if info.type == "image" %}   
+  {% for content in article.get_content %}   
+    {% if content.type == "image" %}   
 
-    <img src="{{ info.image.source.url }}">
+    <img src="{{ content.image.source.url }}">
 
-    <p class = "caption">{{ info.image.caption }}</p>
+    <p class = "caption">{{ content.image.caption }}</p>
 
-    {% elif info.type == "paragraph" %}
+    {% elif content.type == "paragraph" %}
 
-    <p class = "paragraph">{{ info.paragraph }}</p>
+    <p class = "paragraph">{{ content.paragraph }}</p>
 
     {% endif %}
   {% endfor %}
