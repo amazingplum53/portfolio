@@ -7,11 +7,13 @@
   {% for content in article.get_content %}   
     {% if content.content_type == "paragraph" %}   
 
-    {% include "blog/reader/text.html" with content = content %}
+    <img src="{{ content.source.url }}">
+
+    <p class = "caption">{{ content.caption }}</p>
 
     {% elif content.content_type == "image" %}
 
-    {% include "blog/reader/image.html" with content = content %}
+    <p class = "paragraph">{{ content.text }}</p>
 
     {% endif %}
   {% endfor %}
