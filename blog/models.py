@@ -17,55 +17,27 @@ class Article(Model):
 
     release_date = DateField()
 
-    views = IntegerField()
+    views = IntegerField(default = 0)
 
     published = BooleanField(default = False)
 
     category = ForeignKey(Category, on_delete = CASCADE, null = True)
 
+    content = TextField()
 
     def get_content(self):
 
-        content_types = [
-            {"model": Paragraph, "objects": None},
-            {"model": Image, "objects": None},
-        ]
+        images = Image.objects.filter(article = self)
 
-        content_length = 0
+        paragraphs = self.content.split("\n")
 
-        for content_type in content_types:
+        content = [p for p in paragraphs]
 
-            content_type["objects"] = content_type["model"].objects.filter(article = self).order_by("order")
+        for index, image in enumerate(images):
 
-            content_length += len(content_type["objects"])
+            content.insert(image.position + index, image)
 
-        contents = [None] * content_length
-
-        for content_type in content_types:
-
-            for content in content_type["objects"]:
-
-                contents[content.order] = content        
-
-        return contents
-    
-    def first_paragraph(self):
-
-        all_paragraphs = Paragraph.objects.filter(article = self)
-
-        return all_paragraphs.order_by("order").first()
-    
-
-class Paragraph(Model):
-
-    article = ForeignKey(Article, on_delete = CASCADE)
-
-    text = TextField()
-
-    order = IntegerField()
-
-    def content_type(self):
-        return "paragraph"
+        return content
     
 
 class Image(Model):
@@ -76,7 +48,5 @@ class Image(Model):
 
     caption = CharField(max_length = 200)
 
-    order = IntegerField()
+    position = IntegerField() # No of paragraphs
 
-    def content_type(self):
-        return "image"
