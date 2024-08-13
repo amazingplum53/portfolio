@@ -15,7 +15,9 @@ class Article(Model):
 
     title = CharField(max_length = 200)
 
-    release_date = DateField()
+    release_date = DateField(auto_now_add = True)
+
+    updated_date = DateField(auto_now = True)
 
     views = IntegerField(default = 0)
 
