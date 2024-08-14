@@ -1,0 +1,43 @@
+[
+    {
+      "model": "blog.category",
+      "pk": 1,
+      "fields": {
+        "name": "Food",
+        "description": "Explore the culinary world with recipes, restaurant reviews, and food trends. Whether you're a foodie, a home cook, or someone who just loves to eat, this category has something to whet your appetite."
+      }
+    },
+    {
+      "model": "blog.category",
+      "pk": 2,
+      "fields": {
+        "name": "Travel",
+        "description": "Discover travel guides, tips, and experiences from around the world. From hidden gems to popular tourist destinations, this category will inspire your next adventure."
+      }
+    },
+    {
+      "model": "blog.category",
+      "pk": 3,
+      "fields": {
+        "name": "Technology",
+        "description": "Stay up to date with the latest in technology, from gadgets and software to the impact of tech on society. Whether you're a tech enthusiast or just curious, this category covers it all."
+      }
+    },
+    {
+      "model": "blog.category",
+      "pk": 4,
+      "fields": {
+        "name": "Health & Wellness",
+        "description": "Your go-to source for health tips, wellness advice, and fitness routines. This category is dedicated to helping you live a healthier, happier life, with content on mental and physical well-being."
+      }
+    },
+    {
+      "model": "blog.category",
+      "pk": 5,
+      "fields": {
+        "name": "Lifestyle",
+        "description": "Explore the latest trends in fashion, home decor, and personal development. The lifestyle category covers everything you need to elevate your everyday living."
+      }
+    }
+]
+  
