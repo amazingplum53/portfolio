@@ -45,3 +45,5 @@ def on_starting(server):
             print("Environment variables not found. Using local settings.")
 
     run(["python3", "manage.py", "migrate"])
+
+    run(["python3", "manage.py", "loaddata", "blog/fixtures/categories.json", "blog/fixtures/articles.yaml"])
