@@ -2,3 +2,4 @@ Django
 gunicorn
 mailjet-rest
 Pillow
+pyyaml
