@@ -1,17 +1,23 @@
 {% extends "blog/reader/base.html" %}
 
-{% block title %}Categories{% endblock %}
+{% block title %}{{ category.name }}{% endblock %}
 
-{% block header %}Category List{% endblock %}
+{% block header %}{{ category.name }}{% endblock %}
 
 {% block content %}
 
-{% for category in category_list %}
+{% for article in articles %}
 
-  <a href = "/blog/category/{{ category.id }}">
+  <a href = "/blog/article/{{ article.id }}">
     <h2>
-      {{ category.name }}
+      {{ article.title }}
     </h2>
+    <p>
+      {{ article.release_date }}
+    </p>
+    <p>
+      {{ article.get_first_paragraph }}
+    </p>
   </a>
 
 {% endfor %}

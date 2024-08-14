@@ -20,11 +20,32 @@ def featured(request):
     )
 
 
-def category(request):
+def category(request, category_id):
 
+    try:
+        category = Category.objects.get(id = category_id)
+
+        articles = Article.objects.filter(category = category)
+
+    except:
+        return HttpResponseRedirect("/blog/featured/")
+    
     return render(
         request,
         "blog/reader/category.html",
+        {
+            'categories': Category.objects.all()[:5],
+            "category": category,
+            "articles": articles
+        }
+    )
+
+
+def categories(request):
+
+    return render(
+        request,
+        "blog/reader/categories.html",
         {
             'categories': Category.objects.all()[:5],
             "category_list": Category.objects.all(),
