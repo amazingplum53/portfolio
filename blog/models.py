@@ -10,6 +10,8 @@ class Category(Model):
 
     name = CharField(max_length = 200)
 
+    description = TextField()
+
 
 class Article(Model):
 
