@@ -14,7 +14,7 @@ def featured(request):
         request,
         "blog/reader/featured.html",
         {
-            'categories': Category.objects.all(),
+            'categories': Category.objects.all()[:5],
             "articles": recent_articles,
         },
     )
@@ -34,7 +34,7 @@ def category(request, category_id):
         request,
         "blog/reader/category.html",
         {
-            'categories': Category.objects.all(),
+            'categories': Category.objects.all()[:5],
             "category": category,
             "articles": articles
         }
@@ -57,7 +57,7 @@ def article(request, article_id):
         request,
         "blog/reader/article.html",
         {
-            'categories': Category.objects.all(),
+            'categories': Category.objects.all()[:5],
             "article": article
         }
     )
