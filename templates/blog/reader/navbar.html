@@ -2,15 +2,19 @@
 <nav>
     <ul>
 
-      <div><a href = '/blog/featured/'>
+      <a href = '/blog/featured/'><li>
         Home
-      </a></div>
+      </li></a>
 
+      <a href = '/blog/categories/'><li>
+        Categories
+      </li></a>   
+      
       {% for category in categories %}
 
-      <div><a href = '/blog/category/{{category.id}}'>
+      <a href = '/blog/category/{{category.id}}'><li>
         {{ category.name }}
-      </a></div>
+      </li></a>
 
       {% endfor %}    
     </ul>
