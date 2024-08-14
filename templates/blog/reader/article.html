@@ -6,6 +6,8 @@
 
 {% block content %}
 
+  <p>{{ article.release_date }}</p>
+
   {% for content in article.get_content %}   
     {% if content.type == "image" %}   
 
