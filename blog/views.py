@@ -77,11 +77,7 @@ def article(request, article_id):
 
 def author_view(request):
 
-    return render(
-        request,
-        "blog/author/article.html",
-        {"articles": Article.objects.all()}
-    )
+    pass
 
 
 def article_writer(request, article_id):
